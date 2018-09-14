@@ -26,7 +26,6 @@ Stock Wars is an application where users are able to compete with their friends,
 
 1) Grant Kourey: Frontend
 
-
 2) Jordan Hua: Frontend
 
 3) Aaron Goldsmith: Backend

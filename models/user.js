@@ -13,11 +13,28 @@ module.exports = function(sequelize, DataTypes) {
         isEmail: true
       }
     },
-    // The password cannot be null
     password: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    firstName:{
+      type: DataTypes.String,
+      allowNull: false,
+      validate:{
+        is: ["^[a-z]+$",'i']     // will only allow letters
+      }
+    },
+    lastName:{
+      type: DataTypes.String,
+      allowNull: false
+    },
+    initialCash:{
+      type: DataTypes.Integer,
+      allowNull: true,
+      defaultValue: 100000,
+      validate: { min: 10, max: 1000001 } // max out at 100k
     }
+
   });
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   User.prototype.validPassword = function(password) {

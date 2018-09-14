@@ -2,7 +2,7 @@
 
 ## Team Members
 
-Aaron Goldsmith, Jordan Hua, Grant Kourey, Darios 
+Aaron Goldsmith, Jordan Hua, Grant Kourey, Darios Teklemariam
 
 ## Project Description
 

@@ -26,10 +26,6 @@ Stock Wars is an application where users are able to compete with their friends,
 
 
 
-## Future Development
-
-1) Allow users to create games and compete with their friends on stock market.
-
 
 
 

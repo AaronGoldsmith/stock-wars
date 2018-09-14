@@ -13,6 +13,17 @@ module.exports = function(app) {
     res.json("/members");
   });
 
+  app.get("/api/stocks/:ticker", function(req, res) {
+    // Find one Author with the id in req.params.id and return them to the user with res.json
+    db.Author.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbAuthor) {
+      res.json(dbAuthor);
+    });
+  });
+
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error

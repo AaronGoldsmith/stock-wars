@@ -18,18 +18,18 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     firstName:{
-      type: DataTypes.String,
+      type: DataTypes.STRING,
       allowNull: false,
       validate:{
-        is: ["^[a-z]+$",'i']     // will only allow letters
+        isAlpha: true 
       }
     },
     lastName:{
-      type: DataTypes.String,
+      type: DataTypes.STRING,
       allowNull: false
     },
     initialCash:{
-      type: DataTypes.Integer,
+      type: DataTypes.INTEGER,
       allowNull: true,
       defaultValue: 100000,
       validate: { min: 10, max: 1000001 } // max out at 100k

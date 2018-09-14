@@ -1,4 +1,39 @@
-form.signup,
-form.login {
+body {
+  background-image: linear-gradient(155deg,rgb(35, 95, 155), rgb(5, 108, 156), rgb(5, 108, 156),rgb(66, 176, 244));
+  height:100vh;
+}
+.header-outer {
+  border-bottom: 1.5px solid lightgrey;
+}
+.container-fluid {
+  padding: 0px;
+}
+.navbar-brand {
+  font-family: 'Bangers', cursive;
+  font-size: 45px;
+  color: white !important;
+}
+.nav-link {
+  color:white !important;
+}
+.navbar-nav {
+  position: absolute;
+  right: 0px;
+}
+.sign-up-card {
+  background-color: white;
+  border-radius: 5px;
+  padding: 15px;
+}
+.login-card {
+  background-color: white;
+  border-radius: 5px;
+  padding: 15px;
+}
+.front-page-row {
   margin-top: 50px;
+}
+.btn-default {
+  background-color: #056c9c;
+  color: white;
 }

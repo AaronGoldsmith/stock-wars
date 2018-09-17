@@ -19,6 +19,7 @@ module.exports = function(app) {
 
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
+    
     if (req.user) {
       res.redirect("members");
     }
@@ -39,6 +40,10 @@ module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function(req, res) {
     res.render("members");
+  });
+
+  app.get("/transaction", isAuthenticated, function(req, res) {
+    res.render("transaction");
   });
 
 };

@@ -1,34 +1,30 @@
 {
-  "development": {
-    "username": "root",
-    "password": null,
-    "database": "SW_db",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "demo": {
-    "username": "root",
-<<<<<<< HEAD
-    "password": "bootcamp",
-=======
-    "password": "null",
->>>>>>> 4bcdc1367be0b97e24b5850dafd8dc7222426dd3
-    "database": "SW_db",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "SW_db",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  }
+    "development": {
+      "username": "root",
+      "password": null,
+      "database": "SW_db",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    },
+    "demo": {
+      "username": "root",
+      "password": "bootcamp",
+      "database": "SW_db",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    },
+    "test": {
+      "username": "root",
+      "password": null,
+      "database": "SW_db",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    },
+    "production": {
+      "username": "root",
+      "password": null,
+      "database": "database_production",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    }
 }

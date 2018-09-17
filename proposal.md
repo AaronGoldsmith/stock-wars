@@ -15,12 +15,12 @@ Stock Wars is an application where users are able to compete with their friends,
 2) User information will be stored in a mySQL database. 
 
 3) Our initial ~high-level~ tables are:
-### **USER TABLE**
+#### **USER TABLE**
 
 | ID             | username | firstName | lastName | email | initialCash |
 |----------------|----------|-----------|----------|-------|-------------|
 
-### **TRANSACTION TABLE**
+#### **TRANSACTION TABLE**
 
 | ID 	| ticker 	| quantity 	| purchased_date 	| price_per_share 	|
 |----	|--------	|----------	|----------------	|-----------------	|
@@ -32,7 +32,7 @@ We will be using the API provided by iextrading.com to pull current stock prices
 
 ## Breakdown of Responsibilities
 
-1) Grant Kourey: Frontend
+1) Grant Kourey: Frontend 
 
 2) Jordan Hua: Frontend
 

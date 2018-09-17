@@ -30,7 +30,9 @@ module.exports = function(app) {
       res.redirect("members");
     }
 
-    res.render("dashboard");
+    res.render("dashboard", {
+      msg: "Welcome back, Name!"
+    });
   })
 
   // Here we've add our isAuthenticated middleware to this route.

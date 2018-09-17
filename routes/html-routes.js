@@ -32,4 +32,8 @@ module.exports = function(app) {
     res.render("members");
   });
 
+  app.get("/transaction", isAuthenticated, function(req, res) {
+    res.render("transaction");
+  });
+
 };

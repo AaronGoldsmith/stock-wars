@@ -1,6 +1,8 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
+var request = require("request");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -21,8 +23,11 @@ module.exports = function(app) {
   app.post("/api/signup", function(req, res) {
     console.log(req.body);
     db.User.create({
+      firstName: req.body.first,
+      lastName: req.body.last,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      money: req.body.money
     }).then(function() {
       res.redirect(307, "/api/login");
     }).catch(function(err) {
@@ -54,4 +59,14 @@ module.exports = function(app) {
     }
   });
 
+app.post("/api/transaction", function(req, res) {
+    var newTransaction = {
+      userid: req.user.id,
+      ticker: req.body.ticker,
+      quantity: req.body.quantity,
+      price: req.body.price,
+      total_price: req.body.total_price
+    }
+    db.Transactions.create(newTransaction);
+  })
 };

@@ -8,7 +8,7 @@
   },
   "demo": {
     "username": "root",
-    "password": "bootcamp",
+    "password": "null",
     "database": "SW_db",
     "host": "127.0.0.1",
     "dialect": "mysql"

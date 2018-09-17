@@ -26,9 +26,9 @@ Stock Wars is an application where users are able to compete with their friends,
 |----	|--------	|----------	|----------------	|-----------------	|
 
 
-4) Users will be able to virtually "purchase" stocks and track it's progress on the current stock market. The intention behind making the website is to teach individuals about the stock market by jumping right in without the reprecussions that the real stock market may bring. 
+Users will be able to virtually "purchase" stocks and track it's progress on the current stock market. The intention behind making the website is to teach individuals about the stock market by jumping right in without the reprecussions that the real stock market may bring. 
 
-5) We will be using the API provided by iextrading.com to pull current stock prices, news, and even graphics. The API is free to use and _**requires no API key**_
+We will be using the API provided by iextrading.com to pull current stock prices, news, and even graphics. The API is free to use and _**requires no API key**_
 
 ## Breakdown of Responsibilities
 
@@ -36,7 +36,7 @@ Stock Wars is an application where users are able to compete with their friends,
 
 2) Jordan Hua: Frontend
 
-3) Aaron Goldsmith: Backend
+3) Aaron Goldsmith: Frontend & Backend
 
 4) Darios Teklemariam: Backend
 

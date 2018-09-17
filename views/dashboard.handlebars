@@ -1,0 +1,62 @@
+{{!-- <section id="main-body"> --}}
+    <section id="sidebar">
+        <div class="white-label">
+        </div>
+        <div id="sidebar-nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">News</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <div id="dash-content">
+        <div id="dash-content-header">
+            <h1>Dashboard</h1>
+        </div>
+        <div id="portfolio">
+            <h3>Your Portfolio</h3>
+            <h3>Net Worth: </h3>
+        </div>
+        <table class="widget-box" id="stock-table">
+            <thead>
+                <tr>
+                    <th>Current Stocks</th>
+                    <th>Quantity</th>
+                    <th>Total Price</th>
+                </tr>
+                {{!-- <h2>Current Stocks</h2> --}}
+            </thead>
+            <tbody>
+                <tr>
+                    <td>AAPL</td>
+                    <td>10</td>
+                    <td>$100</td>
+                </tr>
+                <tr>
+                    <td>TSLA</td>
+                    <td>5</td>
+                    <td>$200</td>
+                </tr>
+                {{!-- {{#if user}}
+                    {{#each stock}}
+                        {{> stocks}}
+                    {{/each}}
+                {{/if}} --}}
+            </tbody>
+        </table>
+        {{!-- <div class="widget-box">
+            <div class="widget-header">
+                <h2>Widget Header</h2>
+            </div>
+            <div class ="widget-content">
+                data
+            </div>
+        </div> --}}
+        <button class="btn btn-primary" id="buy-btn">Buy stocks</button>
+
+    </div>
+
+    </div>
+{{!-- </section> --}}

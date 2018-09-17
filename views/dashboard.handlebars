@@ -1,62 +1,92 @@
-{{!-- <section id="main-body"> --}}
-    <section id="sidebar">
-        <div class="white-label">
-        </div>
-        <div id="sidebar-nav">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">News</a></li>
-            </ul>
-        </div>
-    </section>
-
-    <div id="dash-content">
-        <div id="dash-content-header">
-            <h1>Dashboard</h1>
-        </div>
-        <div id="portfolio">
-            <h3>Your Portfolio</h3>
-            <h3>Net Worth: </h3>
-        </div>
-        <table class="widget-box" id="stock-table">
-            <thead>
-                <tr>
-                    <th>Current Stocks</th>
-                    <th>Quantity</th>
-                    <th>Total Price</th>
-                </tr>
-                {{!-- <h2>Current Stocks</h2> --}}
-            </thead>
-            <tbody>
-                <tr>
-                    <td>AAPL</td>
-                    <td>10</td>
-                    <td>$100</td>
-                </tr>
-                <tr>
-                    <td>TSLA</td>
-                    <td>5</td>
-                    <td>$200</td>
-                </tr>
-                {{!-- {{#if user}}
-                    {{#each stock}}
-                        {{> stocks}}
-                    {{/each}}
-                {{/if}} --}}
-            </tbody>
-        </table>
-        {{!-- <div class="widget-box">
-            <div class="widget-header">
-                <h2>Widget Header</h2>
+<div id="main-container">
+    <div id="dash-container">
+        <section id="sidebar">
+            <div class="white-label">
             </div>
-            <div class ="widget-content">
-                data
+            <div id="sidebar-nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">News</a></li>
+                </ul>
             </div>
-        </div> --}}
-        <button class="btn btn-primary" id="buy-btn">Buy stocks</button>
+        </section>
 
-    </div>
+        <div id="dash-content">
+            <div id="dash-content-header">
+                <h1>Dashboard</h1>
+            </div>
+            <div id="portfolio">
+                <h3>{{msg}}</h3>
+                {{!-- <h3>Net Worth: </h3> --}}
+            </div>
+            
+            <table class="widget-box" id="stock-table">
+                <thead>
+                    <tr>
+                        <th>Current Stocks</th>
+                        <th>Quantity</th>
+                        <th>Gain/Loss</th>
+                        <th>Total Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#">AAPL</a></td>
+                        <td>10</td>
+                        <td>+50</td>
+                        <td>$100</td>
+                    </tr>
+                    <tr>
+                        <td>TSLA</td>
+                        <td>5</td>
+                        <td>-50</td>
+                        <td>$200</td>
+                    </tr>
+                    <tr>
+                        <td>TSLA</td>
+                        <td>5</td>
+                        <td>-50</td>
+                        <td>$200</td>
+                    </tr>
+                    <tr>
+                        <td>TSLA</td>
+                        <td>5</td>
+                        <td>-50</td>
+                        <td>$200</td>
+                    </tr>
+                    <tr>
+                        <td>TSLA</td>
+                        <td>5</td>
+                        <td>-50</td>
+                        <td>$200</td>
+                    </tr>
+                    {{#if user}}
+                        {{#each stock}}
+                            {{> stocks}}
+                        {{/each}}
+                    {{/if}}
+                </tbody>
+            </table>
 
+            <div class="card" id="dash-card" style="width: 18rem;">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Net Worth: $9999</li>
+                    <li class="list-group-item">Available Cash: $9999</li>
+                    {{!-- <li class="list-group-item">Vestibulum at eros</li> --}}
+                </ul>
+            </div>
+
+            {{!-- <div class="widget-box">
+                <div class="widget-header">
+                    <h2>Widget Header</h2>
+                </div>
+                <div class ="widget-content">
+                    data
+                </div>
+            </div> --}}
+            <button class="btn btn-primary" id="buy-btn">Buy stocks</button>
+        </div>
+        
     </div>
-{{!-- </section> --}}
+</div>

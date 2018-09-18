@@ -34,16 +34,17 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      {{!-- begin signup form --}}
       <div class="modal-body">
         <form class="signup">
           <div class="row">
           <div class="form-group col-md-6">
-            <label for="exampleInputEmail1">First Name</label>
-            <input type="email" class="form-control" id="email-input-su" placeholder="John">
+            <label for="first-input-su">First Name</label>
+            <input type="text" class="form-control" id="first-input-su" placeholder="John">
           </div>
                     <div class="form-group col-md-6">
-            <label for="exampleInputEmail1">Last Name</label>
-            <input type="email" class="form-control" id="email-input-su" placeholder="Doe">
+            <label for="last-input-su">Last Name</label>
+            <input type="text" class="form-control" id="last-input-su" placeholder="Doe">
           </div>
           </div>
 
@@ -58,14 +59,14 @@
           </div>
 
             <div class="form-group">
-    <label for="exampleFormControlSelect2">Choose Your Starting Amount</label>
-    <select class="form-control" id="exampleFormControlSelect2">
-      <option value="10000" selected>$10,000</option>
-      <option value="25000">$25,000</option>
-      <option value="50000">$50,000</option>
-      <option value="100000">$100,000</option>
-    </select>
-  </div>
+              <label for="exampleFormControlSelect2">Choose Your Starting Amount</label>
+              <select class="form-control" id="exampleFormControlSelect2">
+                <option value="10000" selected>$10,000</option>
+                <option value="25000">$25,000</option>
+                <option value="50000">$50,000</option>
+                <option value="100000">$100,000</option>
+              </select>
+            </div>
 
           <div style="display: none" id="alert" class="alert alert-danger" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
@@ -89,14 +90,14 @@
         </button>
       </div>
       <div class="modal-body">
-        <form class="signup">
+        <form class="login">
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-input-su" placeholder="Email">
+            <input type="email" class="form-control" id="email-input" placeholder="Email">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input-su" placeholder="Password">
+            <input type="password" class="form-control" id="password-input" placeholder="Password">
           </div>
           <div style="display: none" id="alert" class="alert alert-danger" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>

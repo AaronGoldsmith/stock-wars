@@ -12,7 +12,6 @@ module.exports = function(app) {
     // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
-    // res.json("/members");
     res.json(req.user)
   });
 
@@ -28,13 +27,13 @@ module.exports = function(app) {
       lastName: req.body.last,
       email: req.body.email,
       password: req.body.password,
-      money: req.body.money
+      initialCash: req.body.money,
+      activeCash: req.body.money,
     }).then(function() {
       res.redirect(307, "/api/login");
     }).catch(function(err) {
-      console.log(err);
       res.json(err);
-      // res.status(422).json(err.errors[0].message);
+      res.status(422).json(err.errors[0].message);
     });
   });
 
@@ -60,14 +59,38 @@ module.exports = function(app) {
     }
   });
 
+  // posting a new transaction
 app.post("/api/transaction", function(req, res) {
+    var currentCash;
+    var afterTransaction;
     var newTransaction = {
       userid: req.user.id,
       ticker: req.body.ticker,
-      quantity: req.body.quantity,
-      price: req.body.price,
-      total_price: req.body.total_price
+      quantity: parseInt(req.body.quantity),
+      price: parseFloat(req.body.price),
+      total_price: parseFloat(req.body.total_price)
     }
-    db.Transactions.create(newTransaction);
+    db.User.findOne({
+      where: {id: req.user.id}
+    }).then(function(user){
+      currentCash = parseInt(user.activeCash);
+      afterTransaction = currentCash-newTransaction.total_price;
+      console.log(afterTransaction);
+      if(parseInt(afterTransaction) > 0){
+        db.Transactions.create(newTransaction);
+        user.update({activeCash: parseInt(afterTransaction)}).then(function(){
+          res.json(newTransaction)
+        });
+      }
+      else{
+        console.log("not enough cash");
+      }
+    })
+    
+    // console.log(currentCash)
+    // console.log(newTransaction)
+     
+    // console.log(afterTransaction);
+    
   });
 };

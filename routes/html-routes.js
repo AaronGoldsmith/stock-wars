@@ -54,7 +54,7 @@ module.exports = function(app) {
 
 
   app.get("/stock", function(req, res) {
-    res.render("stock");
+    res.render("stock", req.query);
   })
 
   app.get("/dashboard", function(req, res) {

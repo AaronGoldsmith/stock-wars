@@ -366,6 +366,9 @@ tr:nth-child(even){
   text-align:center;
   border: 2px solid lightgrey;
 }
+.buttonsClass {
+  margin: 10px;
+}
 
 @media (max-width: 992px) {
   .news {

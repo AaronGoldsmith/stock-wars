@@ -61,6 +61,7 @@ module.exports = function(app) {
   });
 
 app.post("/api/transaction", function(req, res) {
+  console.log(req.user);
     var newTransaction = {
       userid: req.user.id,
       ticker: req.body.ticker,

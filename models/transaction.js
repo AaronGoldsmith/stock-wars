@@ -8,8 +8,7 @@ module.exports = function(sequelize, DataTypes) {
     ticker:
     { // the ticker symbol
       type: DataTypes.STRING,
-      allowNull: false,
-      unique: true
+      allowNull: false
     },
     quantity:{
       type: DataTypes.INTEGER,

@@ -113,7 +113,7 @@ var form = $("#transForm");
             var total = currentPrice * quantity.val();
             var bsChoice = $("#bsChoice").val();
             console.log(bsChoice);
-            var bsquantity = $("#quantity").val().trim();
+            var bsquantity = $("#quantity").val();
             if(bsChoice === "Sell") {
                 bsquantity *= -1;
             }

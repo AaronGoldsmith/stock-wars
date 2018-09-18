@@ -32,13 +32,13 @@ module.exports = function (sequelize, DataTypes)
       allowNull: false
     },
     initialCash: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
+      type: DataTypes.DECIMAL,
+      allowNull: false,
       defaultValue: 100000,
       validate: { min: 10, max: 1000001 } // max out at 100k
     },
     activeCash: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL,
       allowNull: true,
       defaultValue: 0,
     }

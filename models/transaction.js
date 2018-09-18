@@ -8,19 +8,18 @@ module.exports = function(sequelize, DataTypes) {
     ticker:
     { // the ticker symbol
       type: DataTypes.STRING,
-      allowNull: false,
-      unique: true
+      allowNull: false
     },
     quantity:{
       type: DataTypes.INTEGER,
       allowNull: false
     },
     price: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.DECIMAL,
       allowNull: false
     },
     total_price: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.DECIMAL,
       allowNull: false
     }
   });

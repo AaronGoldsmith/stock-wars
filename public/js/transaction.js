@@ -17,9 +17,15 @@ $(document).ready(function() {
             console.log('here')
         }}).then(function() {
             var total = currentPrice * quantity.val();
+            var bsChoice = $("#bsChoice").val();
+            console.log(bsChoice);
+            var bsquantity = $("#quantity").val().trim();
+            if(bsChoice === "Sell") {
+                bsquantity *= -1;
+            }
             var transaction = {
                 ticker: ticker.val().trim(),
-                quantity: quantity.val(),
+                quantity: bsquantity,
                 price: currentPrice,
                 total_price: total  
             }

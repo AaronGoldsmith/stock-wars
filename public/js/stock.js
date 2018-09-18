@@ -3,14 +3,14 @@ var dates = [];
 var chartColor;
 var marketCap;
 
-$("#stockSearch").on("submit", function(event) {
+var url = window.location.href;
+var split = url.split("=");
+var ticker = split[1];
+
+$("#ticker").val(ticker);
     prices = [];
     dates = [];
 
-    event.preventDefault();
-    $(".news").empty();
-    var ticker = $("#ticker").val().trim();
-    $("#ticker").val('');
     var query = "https://api.iextrading.com/1.0/stock/" + ticker + "/batch?types=quote,news,chart&range=6m&last=2";
 
     $.ajax({url: query, success: function(response) {
@@ -30,8 +30,14 @@ $("#stockSearch").on("submit", function(event) {
         prices.push(response.quote.latestPrice);
         dates = dates.reverse();
         dates.push('Today')
+        var change;
+        if (response.quote.change < 0) {
+            change = "-$" + (response.quote.change * -1);
+        } else {
+            change = "$" + response.quote.change;
+        }
         $("#tickername").text(response.quote.companyName + " (" + response.quote.symbol + ")");
-        $(".change").text("$" + response.quote.latestPrice + " ($" + response.quote.change + "/" + ((response.quote.changePercent * 100).toFixed(2)) + "%)");
+        $(".change").text("$" + response.quote.latestPrice + " (" + change + "/" + ((response.quote.changePercent * 100).toFixed(2)) + "%)");
         
         //Changing colors depending if stock is up or down
         if(response.quote.change > 0) {
@@ -43,7 +49,6 @@ $("#stockSearch").on("submit", function(event) {
         }
 
         var newsDiv = $("<div class='newsArticle'>");
-        newsDiv.append("<h2 class='newsheader'>News</h2>")
         for(var i = 0; i < response.news.length; i++) {
             var newHeader = $("<h2 class='newsArticleHeader'>" + response.news[i].headline + "</h2>");
             newsDiv.append(newHeader);
@@ -54,10 +59,14 @@ $("#stockSearch").on("submit", function(event) {
             var newButton = $("<a class='articleLink' target='_blank' href='" + response.news[i].url + "'>View Article</a>");
             newsDiv.append(newButton);
         }
+
+        var marketCap = response.quote.marketCap;
+        marketCap = marketCap.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
         $(".news").append(newsDiv);
         $(".52weekh").text("$" + response.quote.week52High);
         $(".52weekl").text("$" + response.quote.week52Low);
-        $(".marketcap").text(response.quote.marketCap);
+        $(".marketcap").text("$" + marketCap);
         $(".peratio").text(response.quote.peRatio);
 
 
@@ -81,5 +90,41 @@ var myLineChart = new Chart(ctx, {
     }
 });
 
-    })
-})
+});
+
+
+
+var form = $("#transForm");
+    var ticker = $("#ticker");
+    var quantity = $("#quantity");
+
+
+    form.on("submit", function(event) {
+        event.preventDefault();
+        var tickerValue = ticker.val().trim();
+        if(ticker.val().length === 0) {
+            return;
+        };
+        var currentPrice;
+        var query = `https://api.iextrading.com/1.0/stock/${tickerValue}/price`
+        $.ajax({url: query, success: function(result){
+            currentPrice = result;
+        }}).then(function() {
+            var total = currentPrice * quantity.val();
+            var bsChoice = $("#bsChoice").val();
+            console.log(bsChoice);
+            var bsquantity = $("#quantity").val().trim();
+            if(bsChoice === "Sell") {
+                bsquantity *= -1;
+            }
+            var transaction = {
+                ticker: ticker.val().trim(),
+                quantity: bsquantity,
+                price: currentPrice,
+                total_price: total  
+            }
+            $.post("/api/transaction", transaction)
+        });
+
+        
+});

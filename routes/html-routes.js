@@ -15,7 +15,9 @@ module.exports = function(app) {
 
       res.render("dashboard", {
         msg: "Welcome back,",
-        name: req.user.firstName
+        name: req.user.firstName,
+        total: req.user.initialCash,
+        available: req.user.activeCash
       });
     }
     else{

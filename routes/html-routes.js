@@ -35,13 +35,7 @@ module.exports = function(app) {
       msg: "Welcome back, Name!"
     });
   })
-  app.get("*",function(req,res){
-    res.render("404",{
-      msg: "Page doesn't not exist",
-      error: "404"
-    });
-  })
-
+ 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function(req, res) {
@@ -51,5 +45,12 @@ module.exports = function(app) {
   app.get("/transaction", isAuthenticated, function(req, res) {
     res.render("transaction");
   });
+
+  app.get("/*",function(req,res){
+    res.render("404",{
+      msg: "Page doesn't not exist",
+      error: "404"
+    });
+  })
 
 };

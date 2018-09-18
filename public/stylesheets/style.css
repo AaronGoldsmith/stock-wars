@@ -338,3 +338,37 @@ tr:nth-child(even){
   /* margin: 5px; */
   border: none;
 }
+.allinfo {
+  display: none;
+  background-color: white;
+  margin-top: 20px;
+  padding: 20px;
+  overflow: hidden;
+}
+.stockchart {
+  display:inline-block;
+}
+.news {
+  border: solid 1px lightgrey;
+  float:right;
+}
+.newsheader {
+  border-bottom: solid 1px lightgrey;
+}
+.newsArticleHeader {
+  font-size: 20px;
+  margin-top: 15px;
+}
+.newsBody {
+  font-size: 15px;
+}
+.stats {
+  text-align:center;
+  border: 2px solid lightgrey;
+}
+
+@media (max-width: 992px) {
+  .news {
+    margin-top:15px;
+  }
+}

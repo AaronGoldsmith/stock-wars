@@ -1,5 +1,6 @@
 <div id="main-container">
     <div id="dash-container">
+        {{!-- Creating Sidebar --}}
         <section id="sidebar">
             <div class="white-label">
             </div>
@@ -11,16 +12,15 @@
                 </ul>
             </div>
         </section>
-
+        {{!-- Creating Dashboard Content --}}
         <div id="dash-content">
             <div id="dash-content-header">
                 <h1>Dashboard</h1>
             </div>
             <div id="portfolio">
                 <h3>{{msg}}</h3>
-                {{!-- <h3>Net Worth: </h3> --}}
             </div>
-            
+            {{!-- Current Stock Table --}}
             <table class="widget-box" id="stock-table">
                 <thead>
                     <tr>
@@ -61,11 +61,11 @@
                         <td>-50</td>
                         <td>$200</td>
                     </tr>
-                    {{#if user}}
+                    {{!-- {{#if user}} --}}
                         {{#each stock}}
                             {{> stocks}}
                         {{/each}}
-                    {{/if}}
+                    {{!-- {{/if}} --}}
                 </tbody>
             </table>
 

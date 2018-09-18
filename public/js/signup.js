@@ -13,7 +13,7 @@ $(document).ready(function() {
     var userData = {
       first: firstName.val().trim(),
       last: lastName.val().trim(),
-      money: moneyChoice.val().trim(),
+      money: moneyChoice.val(),
       email: emailInput.val().trim(),
       password: passwordInput.val().trim()
     };

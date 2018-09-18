@@ -1,6 +1,7 @@
 // Requiring path to so we can use relative routes to our HTML files
 var path = require("path");
 var express = require("express");
+var db = require("../models/index");
 
 
 // Requiring our custom middleware for checking if a user is logged in

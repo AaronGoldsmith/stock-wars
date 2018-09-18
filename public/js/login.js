@@ -28,7 +28,8 @@ $(document).ready(function() {
       email: email,
       password: password
     }).then(function(data) {
-      window.location.replace(__dirname + "/dashboard");
+      console.log('chicken')
+      window.location.href = "/dashboard"
       // If there's an error, log the error
     }).catch(function(err) {
       console.log(err);

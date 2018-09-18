@@ -26,14 +26,15 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
-  app.get("/dashboard", function (req, res) {
+  app.get("/dashboard", isAuthenticated, function (req, res) {
     if (req.user) {
-      res.redirect("members");
+      res.render("dashboard", {
+        msg: "Welcome back, Name!"
+      });
     }
+    res.redirect("/");
 
-    res.render("dashboard", {
-      msg: "Welcome back, Name!"
-    });
+
   })
 
   // Here we've add our isAuthenticated middleware to this route.
@@ -46,4 +47,7 @@ module.exports = function(app) {
     res.render("transaction");
   });
 
+  app.get("/stock", function(req, res) {
+    res.render("stock");
+  })
 };

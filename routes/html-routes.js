@@ -1,6 +1,7 @@
 // Requiring path to so we can use relative routes to our HTML files
 var path = require("path");
 var express = require("express");
+var db = require("../models/index");
 
 
 // Requiring our custom middleware for checking if a user is logged in
@@ -27,13 +28,13 @@ module.exports = function(app) {
   });
 
   app.get("/dashboard", function (req, res) {
-    if (req.user) {
-      res.redirect("members");
-    }
-
-    res.render("dashboard", {
-      msg: "Welcome back, Name!"
-    });
+    // console.log("Testing table population:"  + req)
+    // db.Transaction.findAll({}).then(function(dbStocks) {
+      res.render("dashboard", {
+        msg: "Welcome back, Name!",
+        // stock: dbStocks
+      });
+    // })
   })
 
   // Here we've add our isAuthenticated middleware to this route.

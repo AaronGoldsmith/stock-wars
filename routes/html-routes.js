@@ -53,10 +53,6 @@ module.exports = function(app) {
   //  Let anyone who is not signed in see this page
   app.get("/stock", function(req, res) {
     if (req.user) {
-      // res.render("stock", {
-      //   user: req.user,
-      //   name: req.user.firstName
-      // });
       res.render("stock", req.query)
 
     }
@@ -90,19 +86,19 @@ module.exports = function(app) {
             for(key in tickerTally){
               stocks.push(tickerTally[key]);
             }
-       
-            res.render("dashboard", {
-              msg: "Welcome back",
-              name: req.user.firstName,
-              total: req.user.initialCash,
-              available: req.user.activeCash,
-              user: req.user,
-              stock: stocks
-            }); 
-        
+            db.User.findOne({
+              where: {id: req.user.id}
+            }).then(function(user){
+              res.render("dashboard", {
+                msg: "Welcome back",
+                name: user.firstName,
+                total: user.initialCash,
+                available: user.activeCash,
+                stock: stocks
+              }); 
+            })
+          })
          
-    });
-  })
 
   app.get("/*",function(req,res){
     res.render("404",{
@@ -110,5 +106,5 @@ module.exports = function(app) {
       error: "404"
     });
   })
-
-};
+ });
+}

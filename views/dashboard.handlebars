@@ -1,7 +1,7 @@
 <div id="main-container">
     <div id="dash-container">
         {{!-- Creating Sidebar --}}
-        <section id="sidebar">
+        {{!-- <section id="sidebar">
             <div class="white-label">
             </div>
             <div id="sidebar-nav">
@@ -11,7 +11,7 @@
                     <li><a href="#">News</a></li>
                 </ul>
             </div>
-        </section>
+        </section> --}}
         {{!-- Creating Dashboard Content --}}
         <div id="dash-content">
             <div id="dash-content-header">
@@ -39,8 +39,10 @@
 
             <div class="card" id="dash-card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
+                    <div class="card-border">
                     <li class="list-group-item">Net Worth: ${{total}}</li>
                     <li class="list-group-item">Available Cash: ${{available}}</li>
+                    </div>
                     <li>               <form class="stocksearch">
                             <input type="text" class="form-control" id="tickersearch" size="10" maxlength="4">
                             <button type="submit" class="btn btn-primary" id="searchstockbutton">Search Stock</button>

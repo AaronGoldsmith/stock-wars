@@ -30,19 +30,10 @@
                         <th>Total Price</th>
                     </tr>
                 </thead>
-                <tbody id="stocks">
-                    <tr>
-                        <td><a href="#">AAPL</a></td>
-                        <td>10</td>
-                        <td>+50</td>
-                        <td>$100</td>
-                    </tr>
-                 
-                    {{!-- {{#if user}} --}}
+                <tbody>
                         {{#each stock}}
                             {{> stocks}}
                         {{/each}}
-                    {{!-- {{/if}} --}}
                 </tbody>
             </table>
 

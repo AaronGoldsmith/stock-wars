@@ -63,15 +63,46 @@ module.exports = function(app) {
   })
 
   app.get("/dashboard", function(req, res) {
-    if (req.user) {
-      res.render("dashboard", {
-        msg: "Welcome back",
-        name: req.user.firstName,
-        total: req.user.initialCash,
-        available: req.user.activeCash,
-        user: req.user
-      });
-    }
+    if(!req.user){res.render("index"); return;}
+    db.Transactions.findAll({
+          where: {userid: req.user.id}
+        }).then(function(transactions){
+          var tickerTally = {}
+
+          transactions.forEach(tran => {
+            var obj = tran.dataValues; // all the keys in a transaction
+            var sym = obj.ticker;
+            if(tickerTally[sym]==undefined){
+              tickerTally[sym] = 
+              {
+                'ticker': sym,
+                'quantity': parseInt(obj.quantity),
+                'total': parseFloat(obj.total_price),
+              }
+            }
+            else{
+              tickerTally[sym].quantity += parseInt(obj.quantity);
+              tickerTally[sym].total += parseFloat(obj.total_price);
+            }
+       
+          })
+            var stocks = [];
+            for(key in tickerTally){
+              stocks.push(tickerTally[key]);
+            }
+            console.log(stocks);
+       
+            res.render("dashboard", {
+              msg: "Welcome back",
+              name: req.user.firstName,
+              total: req.user.initialCash,
+              available: req.user.activeCash,
+              user: req.user,
+              stock: stocks
+            }); 
+        
+         
+    });
   })
 
   app.get("/*",function(req,res){

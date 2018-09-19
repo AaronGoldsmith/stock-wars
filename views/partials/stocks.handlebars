@@ -1,5 +1,9 @@
-<td data-id="{{this.ticker}}">
-    <a href="stock/{{this.ticker}}">{{Transaction.ticker}}</a>
-</td>
-<td>{{Transaction.quantity}}</td>
-<td>{{Transaction.total}}</td>
+<tr>
+    <td data-id="{{ticker}}">
+        <a href="/stock?ticker="{{ticker}}>{{ticker}}</a>
+    </td>
+
+    <td>{{quantity}}</td>
+    <td>-</td>
+    <td>${{total}}</td>
+</tr>

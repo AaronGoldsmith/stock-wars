@@ -149,61 +149,32 @@ a {
 }
 
 
-#sidebar {
-  /* position: relative; */
-  overflow: hidden;
-  width: 210px;
+#dash-container {
+  margin: 0 auto;
   height: 100%;
-  float: left;
-  background: #2A2D33;
+  width: 90%;
+  position: relative;
 }
-
-#sidebar-nav {
-  width: 100%;
-  height: calc(100%);
-  padding: 0;
-  background: #2A2d33;
-  border-right: 1px solid #E0E0E0;
-  /* overflow-y: scroll; */
-}
-
-
-#sidebar-nav ul li a {
-  
-  color: #C2C2C2;
-  font-size: .95em;
-  padding: 15px 20px;
-  float: left;
-  width: 100%;
-  font-weight: 600;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-#sidebar-nav ul li:hover a, #sidebar-nav li.active a {
-  color: #333;
-  background: #fff;
-}
-
 
 #dash-content {
+  left: 125px;
   float: left;
-  background: #FFFFFF;
+  background: lightgrey;;
+  opacity: 0.95;
   position: relative;
-  width: calc(100% - 210px);
-  height: calc(100%);
+  width: 80%;
+  height: 100%;
+  border: 2px solid white;
   box-sizing: border-box;
 }
 
 #dash-content-header, #portfolio {
-  background: #fff;
+  font-family: 'Montserrat', sans-serif;
   float: left;
   width: 100%;
   margin-bottom: 15px;
   padding: 15px;
   box-sizing: border-box;
-  border-bottom: 1px solid #ccc;
 }
 
 #dash-content-header h1, #portfolio {
@@ -221,7 +192,6 @@ a {
 .widget-box {
   background: #fff;
   border: 1px solid #E0E0E0;
-  /* float: left; */
   width: calc(100% - 30px);
   margin: 0 0 15px 15px;
 }
@@ -236,7 +206,6 @@ a {
   margin: 0;
   padding: 11px 15px;
   color: black;
-  /* display: inline-block; */
 }
 
 #stock-table {
@@ -269,20 +238,20 @@ tr:nth-child(even){
 
 
 #main-container {
+  padding: 5% 0 5% 0;
   background-image: url('../img/graph1.jpeg');
   height: 100%;
   position: relative;
   width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-#dash-container {
-  margin: 0 auto;
-  height: 100%;
-  width: 90%;
-  position: relative;
-}
 
 #dash-card {
+  background-color: lightgray;
   border: none;
   top: 20px;
   margin-bottom: 50px;
@@ -295,26 +264,31 @@ tr:nth-child(even){
 }
 
 .list-group-item {
+  background-color: white;
+  opacity: 0.95;
   font-size: 20px;
-  /* margin: 5px; */
   border: none;
 }
 .allinfo {
   display: none;
-  background-color: white;
-  margin-top: 20px;
+  /* background-color: white; */
+  /* margin-top: 20px; */
   padding: 20px;
   overflow: hidden;
+}
+#stock-container {
+  background-color: lightgray;
+  border: 2px solid white;
 }
 .stockchart {
   display:inline-block;
 }
 .news {
-  border: solid 1px lightgrey;
+  border: solid 1px darkgrey;
   float:right;
 }
 .newsheader {
-  border-bottom: solid 1px lightgrey;
+  /* border-bottom: solid 1px darkgrey; */
 }
 .newsArticleHeader {
   font-size: 20px;
@@ -330,10 +304,17 @@ tr:nth-child(even){
 .buttonsClass {
   margin: 10px;
 }
+
+.card-border {
+  border: 1px solid darkgray;
+  opacity: 0.95;
+}
+
 #stock-table {
   margin-top: 30px;
 }
 .stocksearch {
+  
   margin-top: 20px;
   padding: 15px;
   border: 2px solid lightgrey;
@@ -343,7 +324,9 @@ tr:nth-child(even){
 }
 #searchstockbutton {
   margin-top: 10px;
+  background-color: #279BE4;
 }
+
 @media (max-width: 992px) {
   .news {
     margin-top:15px;

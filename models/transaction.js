@@ -1,4 +1,4 @@
-// Creating our User model
+// Creating our transaction model for when a user buys or sells a stock
 module.exports = function(sequelize, DataTypes) {
   var Transaction = sequelize.define("Transactions", {
     userid: {
@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     ticker:
-    { // the ticker symbol
+    {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -24,6 +24,5 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
   // return our Transaction model.
-
   return Transaction;
 };

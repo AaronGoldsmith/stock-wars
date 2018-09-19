@@ -30,7 +30,7 @@ $(document).ready(function() {
       password: password
     }).then(function(data) {
       window.location.href = "/dashboard"
-      // If there's an error, log the error
+      // If there's an error, log the error and present notice to user
     }).catch(function(err) {
       if(err) {
         var newRes = $("<p style='color:red' class='validateuser'>You do not have the right username/password combo. Please try again.</p>");
@@ -38,5 +38,4 @@ $(document).ready(function() {
       }
     });
   }
-
 });

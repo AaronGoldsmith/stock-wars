@@ -29,8 +29,6 @@ $(document).ready(function() {
             $.post("/api/transaction", transaction).then(
                 function(error){
                   if(error) throw error;
-
-
             })
         });
 

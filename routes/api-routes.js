@@ -61,6 +61,7 @@ module.exports = function(app) {
 
   // posting a new transaction
 app.post("/api/transaction", function(req, res) {
+    if(!req.user){return}
     var currentCash;
     var afterTransaction;
     var newTransaction = {

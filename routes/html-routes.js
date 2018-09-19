@@ -27,7 +27,9 @@ module.exports = function(app) {
   });
 
   app.get("/login", isAuthenticated, function(req, res) {    
+    if (req.user) {
       res.render("dashboard")
+    }
     // res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 

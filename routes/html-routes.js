@@ -53,10 +53,6 @@ module.exports = function(app) {
   //  Let anyone who is not signed in see this page
   app.get("/stock", function(req, res) {
     if (req.user) {
-      // res.render("stock", {
-      //   user: req.user,
-      //   name: req.user.firstName
-      // });
       res.render("stock", req.query)
 
     }

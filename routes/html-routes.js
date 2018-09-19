@@ -26,7 +26,6 @@ module.exports = function(app) {
     }
     // res.sendFile(path.join(__dirname, "../public/signup.html"));
     
-    // res.render("index")
   });
 
   app.get("/login", function(req, res) {
@@ -59,7 +58,7 @@ module.exports = function(app) {
     res.render("stock", req.query);
   })
 
-  app.get("/dashboard", function(req, res) {
+  app.get("/dashboard", isAuthenticated, function(req, res) {
     res.render("dashboard");
   })
 

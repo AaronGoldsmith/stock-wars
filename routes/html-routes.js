@@ -22,16 +22,16 @@ module.exports = function(app) {
       });
     }
     else{
-      console.log('index');
+      // console.log('index');
       res.render("index")
     }
   });
 
-  app.get("/login", isAuthenticated, function(req, res) {    
+  app.get("/api/login", function(req, res) {    
     if (req.user) {
       res.render("dashboard")
     }
-    // res.sendFile(path.join(__dirname, "../public/login.html"));
+    res.sendFile(path.join(__dirname, "../public/members.html"));
   });
 
   app.get("/logout", function(req, res) {
@@ -69,8 +69,7 @@ module.exports = function(app) {
     //   res.render("stock", req.query)
   })
 
-  app.get("/dashboard", function(req, res) {
-    if (req.user) {
+  app.get("/dashboard", isAuthenticated, function(req, res) {
       console.log('signed in');
 
       res.render("dashboard", {
@@ -80,7 +79,7 @@ module.exports = function(app) {
         available: req.user.activeCash,
         user: req.user
       });
-    }
+    
   })
 
   app.get("/*",function(req,res){

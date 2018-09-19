@@ -6,7 +6,7 @@ setTimeout(function() {
     $("#buttonsu").fadeTo("fast", 1);
 }, 1250);
 
-$("#su-btn").on("click", function(event) {
-    event.preventDefault();
-    window.location.href="/dashboard";
-})
+// $("#su-btn").on("click", function(event) {
+//     event.preventDefault();
+//     window.location.href="/dashboard";
+// })

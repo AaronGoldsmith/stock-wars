@@ -8,12 +8,25 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sumodal">Sign Up</button>
-      </li>
-      <li class="nav-item">
-        <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#limodal">Sign In</button>
-      </li>
+      {{#unless user}}
+        <li class="nav-item">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sumodal">Sign Up</button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#limodal">Sign In</button>
+        </li>
+      {{/unless}}
+      {{#if user}}
+        <div class="dropdown" id="dropdown-user">
+          <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink dropdown-user1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <p id="nav-username">{{name}}</p>
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="/logout">Logout</a>
+          </div>
+        </div>
+      {{/if}}
     </ul>
   </div>
 </nav>
@@ -67,7 +80,7 @@
             <span class="sr-only">Error:</span> <span class="msg"></span>
           </div>
 
-          <button type="submit" class="btn btn-default">Sign Up</button>
+          <button type="submit" class="btn btn-default" id="su-btn">Sign Up</button>
         </form>
       </div>
     </div>
@@ -106,3 +119,5 @@
 
 
 </div>
+
+<script src="/js/homepage.js"></script>

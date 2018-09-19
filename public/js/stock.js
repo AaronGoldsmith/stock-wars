@@ -108,6 +108,7 @@ quantity.on("keypress",function(event){
 
     form.on("submit", function(event) {
         event.preventDefault();
+        $(".validateuser").remove();
         if(ticker.length === 0) {
             return;
         };

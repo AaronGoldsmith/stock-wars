@@ -40,8 +40,12 @@ $(document).ready(function() {
       password: password,
       money: money
     }).then(function(data) {
-      console.log(data)
-      // window.location.replace(data);
+      $(".validateuser").remove();
+      if(data === "exists") {
+        var newRes = $("<p style='color:red' class='validateuser'>It looks like a user with that email already exists</p>");
+        $(".signup").append(newRes);
+      }
+      location.replace("/");
       // If there's an error, handle it by throwing up a boostrap alert
     }).catch(handleLoginErr);
   }

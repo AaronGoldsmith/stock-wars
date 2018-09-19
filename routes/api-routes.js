@@ -21,20 +21,28 @@ module.exports = function(app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", function(req, res) {
-    console.log(req.body);
-    db.User.create({
-      firstName: req.body.first,
-      lastName: req.body.last,
-      email: req.body.email,
-      password: req.body.password,
-      initialCash: req.body.money,
-      activeCash: req.body.money,
-    }).then(function() {
-      res.redirect(307, "/api/login");
-    }).catch(function(err) {
-      res.json(err);
-      res.status(422).json(err.errors[0].message);
+    db.User.findOne({
+      where: {email: req.body.email}
+    }).then(function(result){
+      if(result !== null) {
+        res.json("exists");
+      } else {
+        db.User.create({
+          firstName: req.body.first,
+          lastName: req.body.last,
+          email: req.body.email,
+          password: req.body.password,
+          initialCash: req.body.money,
+          activeCash: req.body.money,
+        }).then(function() {
+          res.redirect(307, "/api/login");
+        }).catch(function(err) {
+          res.json(err);
+          res.status(422).json(err.errors[0].message);
+        });
+      }
     });
+
   });
 
   // Route for logging user out
@@ -74,6 +82,7 @@ app.post("/api/transaction", function(req, res) {
       where: {id: req.user.id}
     }).then(function(user){
       currentCash = parseInt(user.activeCash);
+      console.log(newTransaction.total_price);
       afterTransaction = currentCash-newTransaction.total_price;
       console.log(afterTransaction);
       if(parseInt(afterTransaction) > 0){
@@ -84,6 +93,7 @@ app.post("/api/transaction", function(req, res) {
       }
       else{
         console.log("not enough cash");
+        res.json("Not enough cash");
       }
     })
     

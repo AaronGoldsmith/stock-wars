@@ -53,7 +53,10 @@ module.exports = function(app) {
   //  Let anyone who is not signed in see this page
   app.get("/stock", function(req, res) {
     if (req.user) {
-      res.render("stock", req.query)
+      res.render("stock", {
+        user: req.user,
+        name: req.user.firstName
+      })
 
     }
   })
@@ -92,6 +95,7 @@ module.exports = function(app) {
               res.render("dashboard", {
                 msg: "Welcome back",
                 name: user.firstName,
+                user: req.user,
                 total: user.initialCash,
                 available: user.activeCash,
                 stock: stocks

@@ -40,8 +40,16 @@ $(document).ready(function() {
       password: password,
       money: money
     }).then(function(data) {
-      console.log(data)
-      window.location.href = "/dashboard"
+      $(".validateuser").remove();
+      if(data === "exists") {
+        var newRes = $("<p style='color:red' class='validateuser'>It looks like a user with that email already exists</p>");
+        $(".signup").append(newRes);
+      }
+      location.replace("/");
+    
+      // if above doesn't work, use below window.location... /dashboard
+      // window.location.href = "/dashboard"
+
       // If there's an error, handle it by throwing up a boostrap alert
     }).catch(handleLoginErr);
   }

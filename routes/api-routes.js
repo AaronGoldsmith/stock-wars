@@ -65,9 +65,10 @@ app.post("/api/transaction", function(req, res) {
       total_price: parseFloat(req.body.total_price)
     }
 
-    db.Transactions.findAndCountAll({
+    db.Transactions.findAll({
       where: {userid: req.user.id}
-    }).then(function(transaction){
+    },
+  ).then(function(transaction){
         console.log(transaction);
     });
 

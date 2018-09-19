@@ -25,11 +25,6 @@ module.exports = function(app) {
       console.log('index');
       res.render("index")
     }
-<<<<<<< HEAD
-    // res.sendFile(path.join(__dirname, "../public/signup.html"));
-    
-=======
->>>>>>> backend
   });
 
   app.get("/login", isAuthenticated, function(req, res) {    
@@ -43,12 +38,6 @@ module.exports = function(app) {
     req.logout();
     res.redirect("/")
   })
-
-  // app.get("/dashboard", isAuthenticated, function (req, res) {
-  //     res.render("dashboard", {
-  //       msg: "Welcome back, Name!"
-  //     })
-  //   })
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
@@ -64,26 +53,24 @@ module.exports = function(app) {
   //  Let anyone who is not signed in see this page
   app.get("/stock", function(req, res) {
     if (req.user) {
-      console.log('signed in');
+      // res.render("stock", {
+      //   user: req.user,
+      //   name: req.user.firstName
+      // });
+      res.render("stock", req.query)
 
-      res.render("stock", {
-        user: req.user,
-        name: req.user.firstName
-      });
     }
-    //   res.render("stock", req.query)
   })
 
   app.get("/dashboard", function(req, res) {
     if (req.user) {
-      console.log('signed in');
-
       res.render("dashboard", {
-        msg: "Welcome",
+        msg: "Welcome back",
         name: req.user.firstName,
         total: req.user.initialCash,
         available: req.user.activeCash,
-        user: req.user
+        user: req.user,
+        stocks
       });
     }
   })

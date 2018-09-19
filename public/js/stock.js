@@ -98,7 +98,7 @@ var form = $("#transForm");
 var ticker = $("#ticker");
 var quantity = $("#quantity");
 var query = `https://api.iextrading.com/1.0/stock/${tickerValue}/price`
-quantity.on("onkeyup",function(event){
+quantity.on("keypress",function(event){
     // update the price
     $.ajax({url: query, success: function(result){
         currentPrice = result;

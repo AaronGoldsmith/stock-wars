@@ -26,6 +26,7 @@ $(document).ready(function() {
                 total_price: total  
             }
 
+            // post after callback
             $.post("/api/transaction", transaction).then(
                 function(error){
                   if(error) throw error;

@@ -43,24 +43,10 @@ module.exports = function(app) {
     res.redirect("/");
   });
 
-  // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", function(req, res) {
-    if (!req.user) {
-      // The user is not logged in, send back an empty object
-      res.json({});
-    }
-    else {
-      // Otherwise send back the user's email and id
-      // Sending back a password, even a hashed password, isn't a good idea
-      res.json({
-        email: req.user.email,
-        id: req.user.id
-      });
-    }
-  });
 
   // posting a new transaction
 app.post("/api/transaction", function(req, res) {
+    if(!req.user){return}
     var currentCash;
     var afterTransaction;
     var newTransaction = {
@@ -70,12 +56,19 @@ app.post("/api/transaction", function(req, res) {
       price: parseFloat(req.body.price),
       total_price: parseFloat(req.body.total_price)
     }
+
+    // db.Transactions.findAll({
+    //   group: req.user.id
+    // }).then(function(result){
+    //   // console.log(result);
+    // });
+
     db.User.findOne({
       where: {id: req.user.id}
     }).then(function(user){
       currentCash = parseInt(user.activeCash);
       afterTransaction = currentCash-newTransaction.total_price;
-      console.log(afterTransaction);
+      // console.log(afterTransaction);
       if(parseInt(afterTransaction) > 0){
         db.Transactions.create(newTransaction);
         user.update({activeCash: parseInt(afterTransaction)}).then(function(){

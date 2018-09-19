@@ -14,7 +14,7 @@ module.exports = function(app) {
       console.log('signed in');
 
       res.render("dashboard", {
-        msg: "Welcome",
+        msg: "Let's get started, ",
         name: req.user.firstName,
         total: req.user.initialCash,
         available: req.user.activeCash,
@@ -25,17 +25,18 @@ module.exports = function(app) {
       console.log('index');
       res.render("index")
     }
+<<<<<<< HEAD
     // res.sendFile(path.join(__dirname, "../public/signup.html"));
     
+=======
+>>>>>>> backend
   });
 
-  app.get("/login", function(req, res) {
-    // If the user already has an account send them to the members page
-    
+  app.get("/login", isAuthenticated, function(req, res) {    
     if (req.user) {
-      res.redirect("members.html");
+      res.render("dashboard")
     }
-    res.sendFile(path.join(__dirname, "../public/login.html"));
+    // res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
   app.get("/logout", function(req, res) {
@@ -60,6 +61,7 @@ module.exports = function(app) {
   });
 
 
+  //  Let anyone who is not signed in see this page
   app.get("/stock", function(req, res) {
     if (req.user) {
       console.log('signed in');

@@ -18,7 +18,7 @@
                 <h1>Dashboard</h1>
             </div>
             <div id="portfolio">
-                <h3>{{msg}} {{name}}</h3>
+                <h3>{{msg}}, {{name}}</h3>
             </div>
             {{!-- Current Stock Table --}}
             <table class="widget-box" id="stock-table">
@@ -30,19 +30,10 @@
                         <th>Total Price</th>
                     </tr>
                 </thead>
-                <tbody id="stocks">
-                    <tr>
-                        <td><a href="#">AAPL</a></td>
-                        <td>10</td>
-                        <td>+50</td>
-                        <td>$100</td>
-                    </tr>
-                 
-                    {{!-- {{#if user}} --}}
+                <tbody>
                         {{#each stock}}
                             {{> stocks}}
                         {{/each}}
-                    {{!-- {{/if}} --}}
                 </tbody>
             </table>
 
@@ -53,7 +44,7 @@
                     <li class="list-group-item">Available Cash: ${{available}}</li>
                     </div>
                     <li>               <form class="stocksearch">
-                            <input type="text" class="form-control" id="tickersearch" size="10" maxlength="20">
+                            <input type="text" class="form-control" id="tickersearch" size="10" maxlength="4">
                             <button type="submit" class="btn btn-primary" id="searchstockbutton">Search Stock</button>
                         </form></li>
                 </ul>

@@ -90,7 +90,6 @@ module.exports = function(app) {
             for(key in tickerTally){
               stocks.push(tickerTally[key]);
             }
-            console.log(stocks);
        
             res.render("dashboard", {
               msg: "Welcome back",

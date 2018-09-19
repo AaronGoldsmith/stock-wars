@@ -140,9 +140,9 @@ quantity.on("keypress",function(event){
                     var newRes = $("<p style='color:green' class='validateuser'>You have completed your transaction.</p>");
                     $("#transForm").prepend(newRes);
                     
-                    setTimeout(function() {
-                        window.location.replace("/");
-                    }, 1000);
+                    // setTimeout(function() {
+                    //     window.location.href = "/";
+                    // }, 1000);
                 }
                 
             });

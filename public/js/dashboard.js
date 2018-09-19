@@ -17,7 +17,13 @@ $(document).ready(function() {
     }
 
     makeTable()
+
 });
+
+$.ajax({url: "/api/user", success: function(response) {
+    console.log(response);
+}})
+
 $("form.stocksearch").on("submit", function(event) {
     event.preventDefault();
     $(".validate").remove();

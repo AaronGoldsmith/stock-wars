@@ -51,6 +51,13 @@ module.exports = function(app) {
     res.redirect("/");
   });
 
+  app.get("/api/user", function(req, res) {
+    db.User.findAll({
+      where: {email: "grant.kourey@gmail.com"}
+    }).then(function(response) {
+      console.log(response);
+    })
+  })
 
   // posting a new transaction
 app.post("/api/transaction", function(req, res) {
@@ -66,8 +73,9 @@ app.post("/api/transaction", function(req, res) {
     }
 
     db.Transactions.findAll({
-      where: {userid: req.user.id}
-    },
+      where: {userid: req.user.id
+            }
+    }
   ).then(function(transaction){
         console.log(transaction);
     });

@@ -12,7 +12,7 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     if (req.user) {
       console.log('signed in');
-
+      console.log(req.user.activeCash)
       res.render("dashboard", {
         msg: "Let's get started, ",
         name: req.user.firstName,
@@ -64,6 +64,7 @@ module.exports = function(app) {
 
   app.get("/dashboard", function(req, res) {
     if (req.user) {
+      console.log(req.user);
       res.render("dashboard", {
         msg: "Welcome back",
         name: req.user.firstName,
@@ -71,7 +72,7 @@ module.exports = function(app) {
         available: req.user.activeCash,
         user: req.user
       });
-    }
+      }
   })
 
   app.get("/*",function(req,res){

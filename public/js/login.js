@@ -32,7 +32,10 @@ $(document).ready(function() {
       window.location.href = "/dashboard"
       // If there's an error, log the error
     }).catch(function(err) {
-      console.log(err);
+      if(err) {
+        var newRes = $("<p style='color:red' class='validateuser'>You do not have the right username/password combo. Please try again.</p>");
+        $(".modal-body").append(newRes);
+      }
     });
   }
 

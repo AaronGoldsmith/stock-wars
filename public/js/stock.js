@@ -16,7 +16,6 @@ $("#ticker").val(ticker);
     $.ajax({url: query, success: function(response) {
         //Display the information
         $(".allinfo").css("display", "block");
-        
         //Loop through to create information for chart, starting at most recent
         for(var i = (response.chart.length - 1); i >= 0; i-=10) {
             var price = response.chart[i].close;
@@ -110,20 +109,36 @@ var form = $("#transForm");
         $.ajax({url: query, success: function(result){
             currentPrice = result;
         }}).then(function() {
-            var total = currentPrice * quantity.val();
+            
             var bsChoice = $("#bsChoice").val();
             console.log(bsChoice);
             var bsquantity = $("#quantity").val().trim();
             if(bsChoice === "Sell") {
                 bsquantity *= -1;
             }
+            var total = currentPrice * bsquantity;
+            console.log(total);
             var transaction = {
                 ticker: ticker.val().trim(),
                 quantity: bsquantity,
                 price: currentPrice,
                 total_price: total  
             }
-            $.post("/api/transaction", transaction)
+            $.post("/api/transaction", transaction).then(function(response) {
+                if(response === "Not enough cash") {
+                    var newRes = $("<p style='color:red' class='validateuser'>You do not have enough available cash to complete this transaction. Please try again.</p>");
+                    $("#transForm").append(newRes);
+                } else {
+                    var newRes = $("<p style='color:green' class='validateuser'>You have completed your transaction.</p>");
+                    $("#transForm").prepend(newRes);
+                    
+                    setTimeout(function() {
+                        window.location.replace("/");
+                    }, 1000);
+                }
+                
+            });
+            // window.location.replace("/")
         });
 
         

@@ -9,8 +9,6 @@
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Dashboard</a></li>
                     <li><a href="#">News</a></li>
-                    <li><form class="stocksearch"><input type="text" id="tickersearch" size="5" maxlength="4">
-                    <button type="submit" id="searchstockbutton">Submit</button></form></li>
                 </ul>
             </div>
         </section>
@@ -20,7 +18,7 @@
                 <h1>Dashboard</h1>
             </div>
             <div id="portfolio">
-                <h3>{{msg}} {{name}}!</h3>
+                <h3>{{msg}} {{name}}</h3>
             </div>
             {{!-- Current Stock Table --}}
             <table class="widget-box" id="stock-table">
@@ -75,7 +73,10 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Net Worth: ${{total}}</li>
                     <li class="list-group-item">Available Cash: ${{available}}</li>
-                    {{!-- <li class="list-group-item">Vestibulum at eros</li> --}}
+                    <li>               <form class="stocksearch">
+                            <input type="text" class="form-control" id="tickersearch" size="10" maxlength="20">
+                            <button type="submit" class="btn btn-primary" id="searchstockbutton">Search Stock</button>
+                        </form></li>
                 </ul>
             </div>
 
@@ -87,7 +88,6 @@
                     data
                 </div>
             </div> --}}
-            <button class="btn btn-primary" id="buy-btn">Buy stocks</button>
         </div>
         
     </div>

@@ -70,12 +70,19 @@ app.post("/api/transaction", function(req, res) {
       price: parseFloat(req.body.price),
       total_price: parseFloat(req.body.total_price)
     }
+
+    db.Transactions.findAll({
+      group: req.user.id
+    }).then(function(result){
+      // console.log(result);
+    });
+
     db.User.findOne({
       where: {id: req.user.id}
     }).then(function(user){
       currentCash = parseInt(user.activeCash);
       afterTransaction = currentCash-newTransaction.total_price;
-      console.log(afterTransaction);
+      // console.log(afterTransaction);
       if(parseInt(afterTransaction) > 0){
         db.Transactions.create(newTransaction);
         user.update({activeCash: parseInt(afterTransaction)}).then(function(){

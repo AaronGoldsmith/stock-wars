@@ -6,7 +6,7 @@ var marketCap;
 var url = window.location.href;
 var split = url.split("=");
 var ticker = split[1];
-
+var total = $("#display-total")
 $("#ticker").val(ticker);
     prices = [];
     dates = [];
@@ -71,60 +71,63 @@ $("#ticker").val(ticker);
 
 
     }}).then(function() {
-var ctx = document.getElementById("myChart").getContext('2d');
-var myLineChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: dates,
-        datasets: [{
-            fill: false,
-            borderColor: chartColor,
-            data: prices,
-            lineTension: 0
-        }]
-    },
-    options: {
-        legend: {
-            display: false
-        }
-    }
-});
-
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: dates,
+                datasets: [{
+                    fill: false,
+                    borderColor: chartColor,
+                    data: prices,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                }
+            }
+        });
 });
 
 
 
 var form = $("#transForm");
-    var ticker = $("#ticker");
-    var quantity = $("#quantity");
-
-
-    form.on("submit", function(event) {
-        event.preventDefault();
-        var tickerValue = ticker.val().trim();
-        if(ticker.val().length === 0) {
-            return;
-        };
-        var currentPrice;
-        var query = `https://api.iextrading.com/1.0/stock/${tickerValue}/price`
-        $.ajax({url: query, success: function(result){
-            currentPrice = result;
-        }}).then(function() {
-            var total = currentPrice * quantity.val();
-            var bsChoice = $("#bsChoice").val();
-            console.log(bsChoice);
-            var bsquantity = $("#quantity").val().trim();
-            if(bsChoice === "Sell") {
-                bsquantity *= -1;
-            }
-            var transaction = {
-                ticker: ticker.val().trim(),
-                quantity: bsquantity,
-                price: currentPrice,
-                total_price: total  
-            }
-            $.post("/api/transaction", transaction)
-        });
+var ticker = $("#ticker");
+var quantity = $("#quantity");
+var price = $('#price')// doesn't exist yet, pull from api
+form.on("change",function(event){
+    // update the price
+    var total = price.val()*quantity.val();
+    $("#display-total").val() // change this
+})
+form.on("submit", function(event) {
+    event.preventDefault();
+    var tickerValue = ticker.val().trim();
+    if(ticker.val().length === 0) {
+        return;
+    };
+    var currentPrice;
+    var query = `https://api.iextrading.com/1.0/stock/${tickerValue}/price`
+    $.ajax({url: query, success: function(result){
+        currentPrice = result;
+    }}).then(function() {
+        var total = currentPrice * quantity.val();
+        var bsChoice = $("#bsChoice").val();
+        console.log(bsChoice);
+        var bsquantity = $("#quantity").val().trim();
+        if(bsChoice === "Sell") {
+            bsquantity *= -1;
+        }
+        var transaction = {
+            ticker: ticker.val().trim(),
+            quantity: bsquantity,
+            price: currentPrice,
+            total_price: total  
+        }
+        $.post("/api/transaction", transaction)
+    });
 
         
 });

@@ -14,7 +14,7 @@ module.exports = function(app) {
       console.log('signed in');
 
       res.render("dashboard", {
-        msg: "Welcome back,",
+        msg: "Let's get started, ",
         name: req.user.firstName,
         total: req.user.initialCash,
         available: req.user.activeCash
@@ -24,26 +24,14 @@ module.exports = function(app) {
       console.log('index');
       res.render("index")
     }
-    // res.sendFile(path.join(__dirname, "../public/signup.html"));
-    
-    // res.render("index")
   });
 
-  app.get("/login", function(req, res) {
-    // If the user already has an account send them to the members page
-    
-    if (req.user) {
-      res.redirect("members.html");
-    }
-    res.sendFile(path.join(__dirname, "../public/login.html"));
+  app.get("/login", isAuthenticated, function(req, res) {    
+      res.render("dashboard")
+    // res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
-  // app.get("/dashboard", isAuthenticated, function (req, res) {
-  //     res.render("dashboard", {
-  //       msg: "Welcome back, Name!"
-  //     })
-  //   })
-
+  
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function(req, res) {
@@ -55,13 +43,19 @@ module.exports = function(app) {
   });
 
 
+  //  Let anyone who is not signed in see this page
   app.get("/stock", function(req, res) {
     res.render("stock", req.query);
   })
 
-  app.get("/dashboard", function(req, res) {
-    res.render("dashboard");
-  })
+  app.get("/dashboard", isAuthenticated, function(req, res) {
+    res.render("dashboard", {
+      msg: "Welcome back,",
+      name: req.user.firstName,
+      total: req.user.initialCash,
+      available: req.user.activeCash
+    })
+  });
 
   app.get("/*",function(req,res){
     res.render("404",{

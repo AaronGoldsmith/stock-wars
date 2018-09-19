@@ -1,6 +1,6 @@
 <div class="container">
 <div class="row allinfo">
-        <h4><a href="/dashboard">Back to Dashboard</a></h4>
+        <h4 class="my-3"><a href="/dashboard">Back to Dashboard</a></h4>
     <div class="col-lg-7 stockchart">
         <div class="row">
         <h2><span id="tickername"></span></h2>
@@ -54,8 +54,10 @@
                 <input class="form-control" type="number" id="quantity" aria-describedby="stock-quantity" placeholder="Enter a quantity">
               </div>
             <button id="submit" class="btn btn-primary float-left">Submit</button>
-
           </form>
+      </div>
+      <div class="modal-footer">
+        <p class="display-5" id="display-total"></p>
       </div>
     </div>
   </div>

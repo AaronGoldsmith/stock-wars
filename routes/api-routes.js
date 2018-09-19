@@ -43,21 +43,6 @@ module.exports = function(app) {
     res.redirect("/");
   });
 
-  // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", function(req, res) {
-    if (!req.user) {
-      // The user is not logged in, send back an empty object
-      res.json({});
-    }
-    else {
-      // Otherwise send back the user's email and id
-      // Sending back a password, even a hashed password, isn't a good idea
-      res.json({
-        email: req.user.email,
-        id: req.user.id
-      });
-    }
-  });
 
   // posting a new transaction
 app.post("/api/transaction", function(req, res) {
@@ -72,11 +57,11 @@ app.post("/api/transaction", function(req, res) {
       total_price: parseFloat(req.body.total_price)
     }
 
-    db.Transactions.findAll({
-      group: req.user.id
-    }).then(function(result){
-      // console.log(result);
-    });
+    // db.Transactions.findAll({
+    //   group: req.user.id
+    // }).then(function(result){
+    //   // console.log(result);
+    // });
 
     db.User.findOne({
       where: {id: req.user.id}

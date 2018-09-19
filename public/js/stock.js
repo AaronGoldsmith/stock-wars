@@ -7,6 +7,7 @@ var url = window.location.href;
 var split = url.split("=");
 var ticker = split[1];
 var total = $("#display-total")
+var currentPrice;
 $("#ticker").val(ticker);
     prices = [];
     dates = [];
@@ -96,20 +97,24 @@ $("#ticker").val(ticker);
 var form = $("#transForm");
 var ticker = $("#ticker");
 var quantity = $("#quantity");
-var price = $('#price')// doesn't exist yet, pull from api
-form.on("change",function(event){
+var query = `https://api.iextrading.com/1.0/stock/${tickerValue}/price`
+quantity.on("onkeyup",function(event){
     // update the price
-    var total = price.val()*quantity.val();
-    $("#display-total").val() // change this
-})
+    $.ajax({url: query, success: function(result){
+        currentPrice = result;
+    }}).then(function() {
+            var total = currentPrice*quantity.val();
+            $("#display-total").val(total) 
+    });
+});
+
 form.on("submit", function(event) {
     event.preventDefault();
     var tickerValue = ticker.val().trim();
     if(ticker.val().length === 0) {
         return;
     };
-    var currentPrice;
-    var query = `https://api.iextrading.com/1.0/stock/${tickerValue}/price`
+    // hit the api for the exact price
     $.ajax({url: query, success: function(result){
         currentPrice = result;
     }}).then(function() {

@@ -94,9 +94,8 @@ $("#ticker").val(ticker);
 
 
 var form = $("#transForm");
-var ticker = $("#ticker");
 var quantity = $("#quantity");
-var query = `https://api.iextrading.com/1.0/stock/${tickerValue}/price`
+var query = `https://api.iextrading.com/1.0/stock/${ticker}/price`
 quantity.on("keypress",function(event){
     // update the price
     $.ajax({url: query, success: function(result){
@@ -109,12 +108,11 @@ quantity.on("keypress",function(event){
 
     form.on("submit", function(event) {
         event.preventDefault();
-        var tickerValue = ticker.val().trim();
-        if(ticker.val().length === 0) {
+        if(ticker.length === 0) {
             return;
         };
         var currentPrice;
-        var query = `https://api.iextrading.com/1.0/stock/${tickerValue}/price`
+        var query = `https://api.iextrading.com/1.0/stock/${ticker}/price`
         $.ajax({url: query, success: function(result){
             currentPrice = result;
         }}).then(function() {
@@ -128,7 +126,7 @@ quantity.on("keypress",function(event){
             var total = currentPrice * bsquantity;
             console.log(total);
             var transaction = {
-                ticker: ticker.val().trim(),
+                ticker: ticker,
                 quantity: bsquantity,
                 price: currentPrice,
                 total_price: total  

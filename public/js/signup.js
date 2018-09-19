@@ -45,7 +45,7 @@ $(document).ready(function() {
         var newRes = $("<p style='color:red' class='validateuser'>It looks like a user with that email already exists</p>");
         $(".signup").append(newRes);
       }
-      location.replace("/");
+      location.replace("/dashboard");
     
       // if above doesn't work, use below window.location... /dashboard
       // window.location.href = "/dashboard"

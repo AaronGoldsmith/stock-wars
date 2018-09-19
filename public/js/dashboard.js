@@ -9,12 +9,14 @@ $(document).ready(function() {
 
     function makeRow(ticker,quantity,gain,price){
         var row = ` <tr> `+
-        `<td>${ticker}</td>` +
+        `<td><a href="#">${ticker}</a></td>` +
         `<td>${quantity}</td>` +
         `<td>${gain}</td>` +
         `<td>${price}</td></tr>`
         $("tbody#stocks").append(row);
     }
+
+    makeTable()
 });
 $("form.stocksearch").on("submit", function(event) {
     event.preventDefault();

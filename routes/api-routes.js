@@ -65,11 +65,11 @@ app.post("/api/transaction", function(req, res) {
       total_price: parseFloat(req.body.total_price)
     }
 
-    // db.Transactions.findAll({
-    //   group: req.user.id
-    // }).then(function(result){
-    //   // console.log(result);
-    // });
+    db.Transactions.findAndCountAll({
+      where: {userid: req.user.id}
+    }).then(function(transaction){
+        console.log(transaction);
+    });
 
     db.User.findOne({
       where: {id: req.user.id}

@@ -69,8 +69,7 @@ module.exports = function(app) {
         name: req.user.firstName,
         total: req.user.initialCash,
         available: req.user.activeCash,
-        user: req.user,
-        stocks
+        user: req.user
       });
     }
   })

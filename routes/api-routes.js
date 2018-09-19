@@ -65,18 +65,12 @@ app.post("/api/transaction", function(req, res) {
       total_price: parseFloat(req.body.total_price)
     }
 
-    db.Transactions.findAll({
-      where: {userid: req.user.id}
-    },
-  ).then(function(transaction){
-        console.log(transaction);
-    });
+ 
 
     db.User.findOne({
       where: {id: req.user.id}
     }).then(function(user){
       currentCash = parseInt(user.activeCash);
-      console.log(newTransaction.total_price);
       afterTransaction = currentCash-newTransaction.total_price;
       // console.log(afterTransaction);
       if(parseInt(afterTransaction) > 0){
@@ -86,15 +80,10 @@ app.post("/api/transaction", function(req, res) {
         });
       }
       else{
-        console.log("not enough cash");
         res.json("Not enough cash");
       }
     })
     
-    // console.log(currentCash)
-    // console.log(newTransaction)
-     
-    // console.log(afterTransaction);
-    
+
   });
 };

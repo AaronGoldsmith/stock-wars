@@ -5,6 +5,21 @@
       <div class="col-lg-7 stockchart">
         <div class="row">
           <h2><span id="tickername"></span></h2>
+<<<<<<< HEAD
+          <h2>Current Price:
+            <span id="cp"></span>
+            <small><span class="change"></span></small>
+          </h2>
+          <div class="buttonsClass">
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#buyStockModal">
+              Buy/Sell This Stock
+            </button>
+          </div>
+          <canvas id="myChart" width="100%" height="50%"></canvas>
+        </div>
+
+        <div class="row stats mt-3">
+=======
           <h2></h2>
           <h2>Change Today: <span class="change"></span></h2>
           <div class="buttonsClass">
@@ -13,6 +28,7 @@
           <canvas id="myChart" width="100%" height="50%"></canvas>
         </div>
         <div class="row stats">
+>>>>>>> master
           <div class="col-md-6">
             <p>52 Week High: <span class="52weekh"></span></p>
             <p>52 Week Low: <span class="52weekl"></span></p>
@@ -26,6 +42,8 @@
       <div class="col-lg-4 news">
         <h2 class="newsheader">News</h2>
       </div>
+<<<<<<< HEAD
+
     </div>
 
     <div class="modal fade" id="buyStockModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -59,10 +77,50 @@
               <button id="submit" class="btn btn-primary float-left">Submit</button>
             </form>
             <p class="display-5" id="display-total"></p>
+
+=======
+    </div>
+
+    <div class="modal fade" id="buyStockModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Buy/Sell Stock</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form class="clearfix mb-4 w-100" id="transForm" action="POST">
+              <div class="form-group col-md-6">
+                <label for="bsChoice">Buy or Sell?</label>
+                <select class="form-control" id="bsChoice">
+                  <option value="Buy" selected>Buy</option>
+                  <option value="Sell">Sell</option>
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="stock">Your Chosen Stock</label>
+                <input type="text" id="ticker" class="form-control" aria-describedby="stock-search" placeholder="Search by ticker symbol"
+                  readonly>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="quantity">How Much Do You Want To Trade?</label>
+                <input class="form-control" type="number" id="quantity" aria-describedby="stock-quantity" placeholder="Enter a quantity">
+              </div>
+              <button id="submit" class="btn btn-primary float-left">Submit</button>
+            </form>
+            <p class="display-5" id="display-total"></p>
+>>>>>>> master
           </div>
         </div>
       </div>
     </div>
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
   </div>
 </div>
 

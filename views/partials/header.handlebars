@@ -1,10 +1,34 @@
   <div class="container-fluid header-outer">
     <div class="container">
+<<<<<<< HEAD
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+  <a class="navbar-brand" href="/dashboard">Stock Wars</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      {{#unless user}}
+        <li class="nav-item">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sumodal">Sign Up</button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#limodal">Sign In</button>
+        </li>
+      {{/unless}}
+      {{#if user}}
+        <div class="dropdown" id="dropdown-user">
+          <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink dropdown-user1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <p id="nav-username">{{name}}</p>
+          </a>
+=======
       <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
         <a class="navbar-brand" href="/">Stock Wars</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+>>>>>>> master
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">

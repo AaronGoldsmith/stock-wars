@@ -28,30 +28,6 @@ module.exports = function(app) {
     }
   });
 
-  //Login 
-  // app.get("/login", isAuthenticated, function(req, res) {    
-  //   if (req.user) {
-  //     res.render("dashboard")
-  //   }
-  //   // res.sendFile(path.join(__dirname, "../public/login.html"));
-  // });
-
-  // app.get("/logout", function(req, res) {
-  //   req.logout();
-  //   res.redirect("/")
-  // })
-
-  // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  // app.get("/members", isAuthenticated, function(req, res) {
-  //   res.render("members");
-  // });
-
-  // app.get("/transaction", isAuthenticated, function(req, res) {
-  //   res.render("transaction");
-  // });
-
-
   //Individual stock page
   app.get("/stock", isAuthenticated, function(req, res) {
     if (req.user) {

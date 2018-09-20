@@ -12,46 +12,6 @@ var total = $("#display-total")
 var currentPrice;
 
 $("#ticker").val(ticker);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    prices = [];
-    dates = [];
-
-    var query = "https://api.iextrading.com/1.0/stock/" + ticker + "/batch?types=quote,news,chart&range=6m&last=2";
-
-    $.ajax({url: query, success: function(response) {
-        //Display the information
-        $(".allinfo").css("display", "block");
-        //Loop through to create information for chart, starting at most recent
-        for(var i = (response.chart.length - 1); i >= 0; i-=10) {
-            var price = response.chart[i].close;
-            var date = response.chart[i].date;
-            prices.push(price);
-            dates.push(date);
-        }
-        
-        //Reversing prices and dates so they appear in order
-        prices = prices.reverse();
-        prices.push(response.quote.latestPrice);
-        dates = dates.reverse();
-        dates.push('Today')
-        var change;
-        if (response.quote.change < 0) {
-            change = "-$" + (response.quote.change * -1);
-        } else {
-            change = "$" + response.quote.change;
-        }
-        $("#tickername").text(response.quote.companyName + " (" + response.quote.symbol + ")");
-        $(".change").text(" (" + change + "/" + ((response.quote.changePercent * 100).toFixed(2)) + "%)");
-        $("#cp").text("$"+response.quote.latestPrice)
-        //Changing colors depending if stock is up or down
-        if(response.quote.change > 0) {
-=======
-
-    // prices = [];
-    // dates = [];
->>>>>>> 6e2ba66d1f4560f7634df4fe72b3294b8f918823
 
 var query = "https://api.iextrading.com/1.0/stock/" + ticker + "/batch?types=quote,news,chart&range=6m&last=2";
 
@@ -92,10 +52,6 @@ $.ajax({url: query, success: function(response) {
 
     //Changing colors depending if stock is up or down for the day
     if(response.quote.change > 0) {
-<<<<<<< HEAD
-=======
->>>>>>> master
->>>>>>> 6e2ba66d1f4560f7634df4fe72b3294b8f918823
         $(".change").css("color", "green");
         chartColor = "rgb(0,128,0)";
     } else {

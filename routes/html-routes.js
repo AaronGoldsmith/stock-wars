@@ -55,7 +55,10 @@ module.exports = function(app) {
   //Individual stock page
   app.get("/stock", isAuthenticated, function(req, res) {
     if (req.user) {
-      res.render("stock", req.query)
+      res.render("stock", {
+        user: req.user,
+        name: req.user.firstName
+      })
 
     }
   })
@@ -68,6 +71,7 @@ module.exports = function(app) {
     }).then(function(transactions){
        var tickerTally = {}
 
+<<<<<<< HEAD
       transactions.forEach(tran => {
       var obj = tran.dataValues; // all the keys in a transaction
       var sym = obj.ticker;
@@ -100,6 +104,42 @@ module.exports = function(app) {
       }); 
     })
   })
+=======
+          transactions.forEach(tran => {
+            var obj = tran.dataValues; // all the keys in a transaction
+            var sym = obj.ticker;
+            if(tickerTally[sym]==undefined){
+              tickerTally[sym] = 
+              {
+                'ticker': sym,
+                'quantity': parseInt(obj.quantity),
+                'total': parseFloat(obj.total_price),
+              }
+            }
+            else{
+              tickerTally[sym].quantity += parseInt(obj.quantity);
+              tickerTally[sym].total += parseFloat(obj.total_price);
+            }
+       
+          })
+            var stocks = [];
+            for(key in tickerTally){
+              stocks.push(tickerTally[key]);
+            }
+            db.User.findOne({
+              where: {id: req.user.id}
+            }).then(function(user){
+              res.render("dashboard", {
+                msg: "Welcome back",
+                name: user.firstName,
+                user: req.user,
+                total: user.initialCash,
+                available: user.activeCash,
+                stock: stocks
+              }); 
+            })
+          })
+>>>>>>> 5a4ae94038f8ea5c8c4a27fed4c4f62e6c18c3dc
          
   //404 error page
   app.get("/*",function(req,res){

@@ -4,12 +4,9 @@
       <h4 class="my-3"><a href="/dashboard">Back to Dashboard</a></h4>
       <div class="col-lg-7 stockchart">
         <div class="row">
-          <h2><span id="tickername"></span></h2>
-
-          <h2>Current Price:
-            <span id="cp"></span>
-            <small><span class="change"></span></small>
-          </h2>
+          <h2 id="tickername"></h2>
+          <h4>Current Price: <span class="todayprice"></span>,</h4>
+            <h4 class="changei">Today's Change: <span class="change"></span></h4>
           <div class="buttonsClass">
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#buyStockModal">
               Buy/Sell This Stock

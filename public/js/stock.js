@@ -13,6 +13,9 @@ var currentPrice;
 
 $("#ticker").val(ticker);
 
+    // prices = [];
+    // dates = [];
+
 var query = "https://api.iextrading.com/1.0/stock/" + ticker + "/batch?types=quote,news,chart&range=6m&last=2";
 
 $.ajax({url: query, success: function(response) {
@@ -48,14 +51,14 @@ $.ajax({url: query, success: function(response) {
     $("#tickername").text(response.quote.companyName + " (" + response.quote.symbol + ")");
 
     //Displaying latest price, $ change, and % change
-    $(".change").text("$" + response.quote.latestPrice + " (" + change + "/" + ((response.quote.changePercent * 100).toFixed(2)) + "%)");
-
+    $(".todayprice").text("$" + response.quote.latestPrice);
+    $(".change").text((change + "/" + ((response.quote.changePercent * 100).toFixed(2)) + "%"))
     //Changing colors depending if stock is up or down for the day
     if(response.quote.change > 0) {
-        $(".change").css("color", "green");
+        $(".change, .todayprice").css("color", "green");
         chartColor = "rgb(0,128,0)";
     } else {
-        $(".change").css("color", "red");
+        $(".change, .todayprice").css("color", "red");
         chartColor = "rgb(256,0,0)";  
     }
 

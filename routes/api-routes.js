@@ -17,9 +17,7 @@ module.exports = function(app) {
 
 
 
-  // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
-  // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
-  // otherwise send back an error
+//Route for sigining up a user
   app.post("/api/signup", function(req, res) {
     db.User.findOne({
       where: {email: req.body.email}
@@ -42,7 +40,6 @@ module.exports = function(app) {
         });
       }
     });
-
   });
 
   // Route for logging user out
@@ -52,11 +49,16 @@ module.exports = function(app) {
   });
 
 
-  // posting a new transaction
-app.post("/api/transaction", function(req, res) {
-    if(!req.user){return}
+  // Posting a new transaction
+  app.post("/api/transaction", function(req, res) {
+    //If they are not a user, they will hit a return
+    if(!req.user){
+      return
+    }
     var currentCash;
     var afterTransaction;
+
+    //Creating a trasaction of the object based on the information received from the front end
     var newTransaction = {
       userid: req.user.id,
       ticker: req.body.ticker,
@@ -65,14 +67,13 @@ app.post("/api/transaction", function(req, res) {
       total_price: parseFloat(req.body.total_price)
     }
 
- 
-
+    //This is validating the user has enough available money to pay for the stock
+    //If they do, their "active cash" is updated
     db.User.findOne({
       where: {id: req.user.id}
     }).then(function(user){
       currentCash = parseInt(user.activeCash);
       afterTransaction = currentCash-newTransaction.total_price;
-      // console.log(afterTransaction);
       if(parseInt(afterTransaction) > 0){
         db.Transactions.create(newTransaction);
         user.update({activeCash: parseInt(afterTransaction)}).then(function(){
@@ -83,7 +84,5 @@ app.post("/api/transaction", function(req, res) {
         res.json("Not enough cash");
       }
     })
-    
-
   });
 };

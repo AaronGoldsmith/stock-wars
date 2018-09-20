@@ -37,8 +37,8 @@ $("#ticker").val(ticker);
             change = "$" + response.quote.change;
         }
         $("#tickername").text(response.quote.companyName + " (" + response.quote.symbol + ")");
-        $(".change").text("$" + response.quote.latestPrice + " (" + change + "/" + ((response.quote.changePercent * 100).toFixed(2)) + "%)");
-        
+        $(".change").text(" (" + change + "/" + ((response.quote.changePercent * 100).toFixed(2)) + "%)");
+        $("#cp").text("$"+response.quote.latestPrice)
         //Changing colors depending if stock is up or down
         if(response.quote.change > 0) {
         $(".change").css("color", "green");

@@ -10,6 +10,9 @@ body {
 .container-fluid {
   padding: 0px;
 }
+.tiny{
+  font-size: 0.7em;
+}
 .navbar-brand {
   font-family: 'Bangers', cursive;
   font-size: 45px;
@@ -128,15 +131,12 @@ body {
   text-transform: none;
 }
 
-.footer {
-  text-align: center;
-  padding: 15px;
-  color: white;
+
+.footer a{
+  padding: 0px 10px;
+  font-size: 0.8em;
 }
 
-.github-link {
-  color: white;
-}
 
 ul {
   list-style: none;
@@ -229,13 +229,6 @@ tr:nth-child(even){
   background-color: #f2f2f2
 }
 
-.footer {
-  text-align: center;
-  bottom: 0;
-  width: 100%;
-  height: 20px;
-}
-
 
 #main-container {
   padding: 5% 0 5% 0;
@@ -271,8 +264,6 @@ tr:nth-child(even){
 }
 .allinfo {
   display: none;
-  /* background-color: white; */
-  /* margin-top: 20px; */
   padding: 20px;
   overflow: hidden;
 }

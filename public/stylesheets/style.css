@@ -12,19 +12,14 @@ body {
 .container-fluid {
   padding: 0px;
 }
-<<<<<<< HEAD
 .tiny{
   font-size: 0.7em;
 }
-=======
-<<<<<<< HEAD
-.tiny{
-  font-size: 0.7em;
-}
-=======
 
->>>>>>> master
->>>>>>> 6e2ba66d1f4560f7634df4fe72b3294b8f918823
+.tiny{
+  font-size: 0.7em;
+}
+
 .navbar-brand {
   font-family: 'Bangers', cursive;
   font-size: 45px;
@@ -247,19 +242,6 @@ th, td {
 tr:nth-child(even){
   background-color: #f2f2f2
 }
-
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-.footer {
-  text-align: center;
-  bottom: 0;
-  width: 100%;
-  height: 20px;
-}
->>>>>>> master
->>>>>>> 6e2ba66d1f4560f7634df4fe72b3294b8f918823
 
 #main-container {
   padding: 5% 0 5% 0;

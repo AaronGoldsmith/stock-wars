@@ -1,69 +1,67 @@
   <div class="container-fluid header-outer">
     <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-  <a class="navbar-brand" href="/">Stock Wars</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      {{#unless user}}
-        <li class="nav-item">
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sumodal">Sign Up</button>
-        </li>
-        <li class="nav-item">
-          <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#limodal">Sign In</button>
-        </li>
-      {{/unless}}
-      {{#if user}}
-        <div class="dropdown" id="dropdown-user">
-          <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink dropdown-user1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <p id="nav-username">{{name}}</p>
-          </a>
-
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/logout">Logout</a>
-          </div>
-        </div>
-      {{/if}}
-    </ul>
-  </div>
-</nav>
-</div>
-{{!-- First modal for signup --}}
-<div class="modal fade" id="sumodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Sign Up Here</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+      <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <a class="navbar-brand" href="/">Stock Wars</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            {{#unless user}}
+            <li class="nav-item">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sumodal">Sign Up</button>
+            </li>
+            <li class="nav-item">
+             <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#limodal">Sign In</button>
+            </li>
+            {{/unless}}
+            {{#if user}}
+              <div class="dropdown" id="dropdown-user">
+                <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink dropdown-user1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <p id="nav-username">{{name}}</p>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="/logout">Logout</a>
+              </div>
+            </div>
+          {{/if}}
+        </ul>
       </div>
+    </nav>
+  </div>
+{{!-- First modal for signup --}}
+  <div class="modal fade" id="sumodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sign Up Here</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
       {{!-- begin signup form --}}
-      <div class="modal-body">
-        <form class="signup">
-          <div class="row">
-          <div class="form-group col-md-6">
-            <label for="first-input-su">First Name</label>
-            <input type="text" class="form-control" id="first-input-su" placeholder="John">
-          </div>
-            <div class="form-group col-md-6">
-            <label for="last-input-su">Last Name</label>
-            <input type="text" class="form-control" id="last-input-su" placeholder="Doe">
-          </div>
-          </div>
+        <div class="modal-body">
+          <form class="signup">
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="first-input-su">First Name</label>
+                <input type="text" class="form-control" id="first-input-su" placeholder="John">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="last-input-su">Last Name</label>
+                <input type="text" class="form-control" id="last-input-su" placeholder="Doe">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="email-input-su" placeholder="Email">
+            </div>
 
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-input-su" placeholder="Email">
-          </div>
-
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input-su" placeholder="Password">
-          </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="password-input-su" placeholder="Password">
+            </div>
 
             <div class="form-group">
               <label for="money-choice">Choose Your Starting Amount</label>
@@ -75,49 +73,47 @@
               </select>
             </div>
 
-          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <span class="sr-only">Error:</span> <span class="msg"></span>
-          </div>
+            <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span class="sr-only">Error:</span> <span class="msg"></span>
+            </div>
 
-          <button type="submit" class="btn btn-default" id="su-btn">Sign Up</button>
-        </form>
+            <button type="submit" class="btn btn-default" id="su-btn">Sign Up</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
 {{!-- Second modal for login --}}
-<div class="modal fade" id="limodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Login Here</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form class="login">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-input" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="Password">
-          </div>
-          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <span class="sr-only">Error:</span> <span class="msg"></span>
-          </div>
-          <button type="submit" class="btn btn-default">Login</button>
-        </form>
+  <div class="modal fade" id="limodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Login Here</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="login">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="email-input" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="password-input" placeholder="Password">
+            </div>
+            <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span class="sr-only">Error:</span> <span class="msg"></span>
+            </div>
+            <button type="submit" class="btn btn-default">Login</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
-
 </div>
 
 <script src="/js/homepage.js"></script>

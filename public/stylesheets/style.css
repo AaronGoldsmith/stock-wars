@@ -278,9 +278,7 @@ tr:nth-child(even){
   border: solid 1px darkgrey;
   float:right;
 }
-.newsheader {
-  /* border-bottom: solid 1px darkgrey; */
-}
+
 .newsArticleHeader {
   font-size: 20px;
   margin-top: 15px;

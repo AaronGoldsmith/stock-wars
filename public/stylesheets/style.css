@@ -4,9 +4,11 @@ body {
   font-family: 'Fira Sans', sans-serif;
   position: relative;
 }
+
 .header-outer {
   border-bottom: 1.5px solid lightgrey;
 }
+
 .container-fluid {
   padding: 0px;
 }
@@ -18,30 +20,37 @@ body {
   font-size: 45px;
   color: white !important;
 }
+
 .nav-link {
   color:white !important;
 }
+
 .navbar-nav {
   position: absolute;
   right: 0px;
 }
+
 .sign-up-card {
   background-color: white;
   border-radius: 5px;
   padding: 15px;
 }
+
 .login-card {
   background-color: white;
   border-radius: 5px;
   padding: 15px;
 }
+
 .front-page-row {
   margin-top: 50px;
 }
+
 .btn-default {
   background-color: #056c9c;
   color: white;
 }
+
 .btn-outline-light {
   margin-left: 10px;
 }
@@ -242,7 +251,6 @@ tr:nth-child(even){
   background-attachment: fixed;
 }
 
-
 #dash-card {
   background-color: lightgray;
   border: none;
@@ -262,18 +270,22 @@ tr:nth-child(even){
   font-size: 20px;
   border: none;
 }
+
 .allinfo {
   display: none;
   padding: 20px;
   overflow: hidden;
 }
+
 #stock-container {
   background-color: lightgray;
   border: 2px solid white;
 }
+
 .stockchart {
   display:inline-block;
 }
+
 .news {
   border: solid 1px darkgrey;
   float:right;
@@ -283,13 +295,16 @@ tr:nth-child(even){
   font-size: 20px;
   margin-top: 15px;
 }
+
 .newsBody {
   font-size: 15px;
 }
+
 .stats {
   text-align:center;
   border: 2px solid lightgrey;
 }
+
 .buttonsClass {
   margin: 10px;
 }
@@ -302,15 +317,18 @@ tr:nth-child(even){
 #stock-table {
   margin-top: 30px;
 }
+
 .stocksearch {
   
   margin-top: 20px;
   padding: 15px;
   border: 2px solid lightgrey;
 }
+
 .list-group-item {
   text-align: center;
 }
+
 #searchstockbutton {
   margin-top: 10px;
   background-color: #279BE4;

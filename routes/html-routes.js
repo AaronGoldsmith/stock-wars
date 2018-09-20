@@ -9,6 +9,7 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
 
+  //Root route, checks if they are a user
   app.get("/", function(req, res) {
     if (req.user) {
       console.log('signed in');
@@ -27,31 +28,32 @@ module.exports = function(app) {
     }
   });
 
-  app.get("/login", isAuthenticated, function(req, res) {    
-    if (req.user) {
-      res.render("dashboard")
-    }
-    // res.sendFile(path.join(__dirname, "../public/login.html"));
-  });
+  //Login 
+  // app.get("/login", isAuthenticated, function(req, res) {    
+  //   if (req.user) {
+  //     res.render("dashboard")
+  //   }
+  //   // res.sendFile(path.join(__dirname, "../public/login.html"));
+  // });
 
-  app.get("/logout", function(req, res) {
-    req.logout();
-    res.redirect("/")
-  })
+  // app.get("/logout", function(req, res) {
+  //   req.logout();
+  //   res.redirect("/")
+  // })
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/members", isAuthenticated, function(req, res) {
-    res.render("members");
-  });
+  // app.get("/members", isAuthenticated, function(req, res) {
+  //   res.render("members");
+  // });
 
-  app.get("/transaction", isAuthenticated, function(req, res) {
-    res.render("transaction");
-  });
+  // app.get("/transaction", isAuthenticated, function(req, res) {
+  //   res.render("transaction");
+  // });
 
 
-  //  Let anyone who is not signed in see this page
-  app.get("/stock", function(req, res) {
+  //Individual stock page
+  app.get("/stock", isAuthenticated, function(req, res) {
     if (req.user) {
       res.render("stock", {
         user: req.user,
@@ -61,12 +63,13 @@ module.exports = function(app) {
     }
   })
 
+  //Dashboard page
   app.get("/dashboard", function(req, res) {
     if(!req.user){res.render("index"); return;}
     db.Transactions.findAll({
-          where: {userid: req.user.id}
-        }).then(function(transactions){
-          var tickerTally = {}
+      where: {userid: req.user.id}
+    }).then(function(transactions){
+       var tickerTally = {}
 
           transactions.forEach(tran => {
             var obj = tran.dataValues; // all the keys in a transaction
@@ -103,7 +106,7 @@ module.exports = function(app) {
             })
           })
          
-
+  //404 error page
   app.get("/*",function(req,res){
     res.render("404",{
       msg: "Page doesn't not exist",

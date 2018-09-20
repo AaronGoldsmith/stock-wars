@@ -4,41 +4,51 @@ body {
   font-family: 'Fira Sans', sans-serif;
   position: relative;
 }
+
 .header-outer {
   border-bottom: 1.5px solid lightgrey;
 }
+
 .container-fluid {
   padding: 0px;
 }
+
 .navbar-brand {
   font-family: 'Bangers', cursive;
   font-size: 45px;
   color: white !important;
 }
+
 .nav-link {
   color:white !important;
 }
+
 .navbar-nav {
   position: absolute;
   right: 0px;
 }
+
 .sign-up-card {
   background-color: white;
   border-radius: 5px;
   padding: 15px;
 }
+
 .login-card {
   background-color: white;
   border-radius: 5px;
   padding: 15px;
 }
+
 .front-page-row {
   margin-top: 50px;
 }
+
 .btn-default {
   background-color: #056c9c;
   color: white;
 }
+
 .btn-outline-light {
   margin-left: 10px;
 }
@@ -236,7 +246,6 @@ tr:nth-child(even){
   height: 20px;
 }
 
-
 #main-container {
   padding: 5% 0 5% 0;
   background-image: url('../img/graph1.jpeg');
@@ -248,7 +257,6 @@ tr:nth-child(even){
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-
 
 #dash-card {
   background-color: lightgray;
@@ -269,6 +277,7 @@ tr:nth-child(even){
   font-size: 20px;
   border: none;
 }
+
 .allinfo {
   display: none;
   /* background-color: white; */
@@ -276,31 +285,35 @@ tr:nth-child(even){
   padding: 20px;
   overflow: hidden;
 }
+
 #stock-container {
   background-color: lightgray;
   border: 2px solid white;
 }
+
 .stockchart {
   display:inline-block;
 }
+
 .news {
   border: solid 1px darkgrey;
   float:right;
 }
-.newsheader {
-  /* border-bottom: solid 1px darkgrey; */
-}
+
 .newsArticleHeader {
   font-size: 20px;
   margin-top: 15px;
 }
+
 .newsBody {
   font-size: 15px;
 }
+
 .stats {
   text-align:center;
   border: 2px solid lightgrey;
 }
+
 .buttonsClass {
   margin: 10px;
 }
@@ -313,15 +326,18 @@ tr:nth-child(even){
 #stock-table {
   margin-top: 30px;
 }
+
 .stocksearch {
   
   margin-top: 20px;
   padding: 15px;
   border: 2px solid lightgrey;
 }
+
 .list-group-item {
   text-align: center;
 }
+
 #searchstockbutton {
   margin-top: 10px;
   background-color: #279BE4;

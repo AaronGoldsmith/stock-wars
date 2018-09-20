@@ -9,8 +9,11 @@ $(document).ready(function() {
 
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", function(event) {
+
     $(".validateuser").remove();
+
     event.preventDefault();
+
     var userData = {
       first: firstName.val().trim(),
       last: lastName.val().trim(),
@@ -19,14 +22,14 @@ $(document).ready(function() {
       password: passwordInput.val().trim()
     };
 
-    console.log(userData)
-
     if (!userData.email || !userData.password) {
       return;
     }
     // If we have an email and password, run the signUpUser function
     signUpUser(userData.first, userData.last, userData.email, userData.password, userData.money);
+
     emailInput.val("");
+
     passwordInput.val("");
   });
 
@@ -41,7 +44,7 @@ $(document).ready(function() {
       password: password,
       money: money
     }).then(function(data) {
-      $(".validateuser").remove();
+      //We validate to make sure the user doesn't already exist. If it does, we let the client know.
       if(data === "exists") {
         var newRes = $("<p style='color:red' class='validateuser'>It looks like a user with that email already exists</p>");
         $(".signup").append(newRes);

@@ -1,9 +1,9 @@
 // Requiring bcrypt for password hashing. Using the bcrypt-nodejs version as the regular bcrypt module
 // sometimes causes errors on Windows machines
 var bcrypt = require("bcrypt-nodejs");
-// Creating our User model
-var Sequelize = require('sequelize');
 
+var Sequelize = require('sequelize');
+//The model for our user
 module.exports = function (sequelize, DataTypes)
 {
   var User = sequelize.define("User", {
@@ -31,12 +31,14 @@ module.exports = function (sequelize, DataTypes)
       type: DataTypes.STRING,
       allowNull: false
     },
+    //the initial amount of cash they start with
     initialCash: {
       type: DataTypes.DECIMAL,
       allowNull: false,
       defaultValue: 100000,
-      validate: { min: 10, max: 1000001 } // max out at 100k
+      validate: { min: 10, max: 1000001 } // max out at 100k, have dropdown selection on front end as well
     },
+    //activeCash is their available cash for trading
     activeCash: {
       type: DataTypes.DECIMAL,
       allowNull: true,

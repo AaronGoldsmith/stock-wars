@@ -19,8 +19,10 @@ Try out an existing account below:
 
 | email          | password |Initial Cash|
 |----------------|----------|------------|
-|stockwars1234@gmail.com|stock-wars|$100,000|
+|stockwars1234@gmail.com|stock-wars|$10,000|
 |makemoney4321@gmail.com|stocks-r-us|$10,000|
+|wallstreetguy@gmail.com|stock-wars-now|$100,000|
+
 
 
 

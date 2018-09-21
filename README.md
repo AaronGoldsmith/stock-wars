@@ -8,9 +8,19 @@ A game where users track how their fake money does on the real sock market!
 Users can invest up to $100,000 without consequence to play the stock market, without reprucussions.
 
 
+
+
 ## Team Members
 
 Aaron Goldsmith, Jordan Hua, Grant Kourey, Darios Teklemariam
+
+## Try it out 
+Try out an existing account below: 
+
+| email          | password |Initial Cash|
+|----------------|----------|------------|
+|stockwars1234@gmail.com|stock-wars|$100,000|
+|makemoney4321@gmail.com|stocks-r-us|$10,000|
 
 
 
@@ -37,6 +47,8 @@ Users will be able to virtually "purchase" stocks and track it's progress on the
 
 We will be using the API provided by iextrading.com to pull current stock prices, news, and even graphics. The API is free to use and _**requires no API key**_
 
+
+
 ## Breakdown of Responsibilities
 
 1) Grant Kourey: Frontend 
@@ -46,10 +58,3 @@ We will be using the API provided by iextrading.com to pull current stock prices
 3) Aaron Goldsmith: Frontend & Backend
 
 4) Darios Teklemariam: Backend
-
-
-
-
-
-
-
